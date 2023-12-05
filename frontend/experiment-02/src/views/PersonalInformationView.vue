@@ -26,6 +26,20 @@
           <option value="other">More than 3</option>
         </select>
       </div>
+      <div class="form-group">
+        <label for="gender">Are you familiar with "camelCase"</label>
+        <select id="gender" v-model="participantData.familiarityCamelCase" required>
+          <option value="male">Yes</option>
+          <option value="female">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="gender">Are you familiar with "kebab-case"</label>
+        <select id="gender" v-model="participantData.familiarityKebabCase" required>
+          <option value="male">Yes</option>
+          <option value="female">No</option>
+        </select>
+      </div>
       <button type="submit">Submit</button>
     </form>
   </div>
@@ -51,6 +65,8 @@ export default {
         age: null,
         gender: null,
         programmingExperience: null,
+        familiarityCamelCase: null,
+        familiarityKebabCase: null,
       },
       statingExperiment: false,
       countdown: 3,
