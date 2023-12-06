@@ -5,7 +5,7 @@
     <!-- Toggle button for camelCase or kebab-case -->
     <button @click="toggleCase">{{ buttonText }}</button>
 
-    <div v-if="buttonText = 'camelCase'">
+    <div v-if="this.counter < 5" >
 
       <!-- Box above the clickable boxes -->
       <div class="box">{{ boxWords.options_camel_case.original_word }}</div>
@@ -17,7 +17,13 @@
 
     </div>
     <div v-else>
+      <!-- Box above the clickable boxes -->
+      <div class="box">{{ boxWords.options_kebab_case.original_word }}</div>
 
+      <!-- Four clickable boxes side by side -->
+      <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box">
+        {{ word }}
+      </div>
     </div>
   </div>
 </template>
@@ -35,6 +41,7 @@ export default {
         options_kebab_case: []
       },
       currentCase: 'camelCase', // Initial case
+      counter: 0,
     };
   },
   methods: {
@@ -49,7 +56,12 @@ export default {
     },
     boxClicked(word) {
       // Handle box click event
+      this.counter = this.counter + 1;
+      this.currentExperiment = this.currentExperiment + 1;
+      console.log('Counter:', this.counter);
       console.log('Box clicked:', word);
+      this.fetchBoxWords();
+
     },
     toggleCase() {
       // Toggle between camelCase and kebab-case
