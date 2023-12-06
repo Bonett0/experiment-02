@@ -21,23 +21,23 @@
       <div class="form-group">
         <label for="gender">Programming Experience (years):</label>
         <select id="gender" v-model="participantData.programmingExperience" required>
-          <option value="male">0 I do not now How to programm</option>
-          <option value="female">Less than 3</option>
-          <option value="other">More than 3</option>
+          <option value="0 I do not now How to program">0 I do not now How to program</option>
+          <option value="Less than 3">Less than 3</option>
+          <option value="More than 3">More than 3</option>
         </select>
       </div>
       <div class="form-group">
         <label for="gender">Are you familiar with "camelCase"</label>
         <select id="gender" v-model="participantData.familiarityCamelCase" required>
-          <option value="male">Yes</option>
-          <option value="female">No</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
         </select>
       </div>
       <div class="form-group">
         <label for="gender">Are you familiar with "kebab-case"</label>
         <select id="gender" v-model="participantData.familiarityKebabCase" required>
-          <option value="male">Yes</option>
-          <option value="female">No</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
         </select>
       </div>
       <button type="submit">Submit</button>

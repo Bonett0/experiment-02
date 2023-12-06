@@ -6,7 +6,7 @@
     <p>
       In natural language reading studies, people read better when an explicit separator is used between words. Whether
       it's a white space or a special symbol, the overall message is that reading "this text" is more efficient than
-      reading "thistext" or "this_text."
+      reading "this text" or "this_text."
     </p>
 
     <div class="section">
@@ -71,19 +71,8 @@ export default {
     };
   },
   mounted() {
-    // Fetch button data from the Flask backend
-    this.fetchButtons();
   },
   methods: {
-    async fetchButtons() {
-      try {
-        const response = await fetch('http://127.0.0.1:5000/buttons');
-        const data = await response.json();
-        this.buttons = data;
-      } catch (error) {
-        console.error('Error fetching buttons:', error);
-      }
-    },
     startExperiment() {
       this.$router.push('/personal-info');
     },

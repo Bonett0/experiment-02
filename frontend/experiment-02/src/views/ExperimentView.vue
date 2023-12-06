@@ -39,7 +39,7 @@ export default {
       },
       currentCase: 'camelCase', // Initial case
       counter: 0,
-      answersData: [],
+      answersData: {},
     };
   },
   methods: {
@@ -60,13 +60,13 @@ export default {
     boxClicked(word) {
       // Handle box click event
       const startTime = new Date().getTime(); // Get the current time in milliseconds
-      const isCorrect = word === this.boxWords[this.currentCase].original_word; // Check if the clicked word is correct
+      const isCorrect = word === this.boxWords.original_word; // Check if the clicked word is correct
       const endTime = new Date().getTime(); // Get the current time in milliseconds
       const timeTaken = endTime - startTime; // Calculate the time taken to click the box
 
       // Save the answer data
       this.answersData.push({
-        word: this.boxWords[this.currentCase].original_word,
+        word: this.boxWords.original_word,
         clickedWord: word,
         isCorrect,
         timeTaken,
