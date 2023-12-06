@@ -2,31 +2,72 @@
   <div>
     <h1>Experiment {{ this.currentExperiment }}</h1>
 
-    <!-- Box above the clickable boxes -->
-    <div class="box">{{ boxWords[0] }}</div>
+    <!-- Toggle button for camelCase or kebab-case -->
+    <button @click="toggleCase">{{ buttonText }}</button>
 
-    <!-- Four clickable boxes side by side -->
-    <div v-for="(word, index) in boxWords.slice(1)" :key="index" @click="boxClicked(index)" class="clickable-box">
-      {{ word }}
+    <div v-if="buttonText = 'camelCase'">
+
+      <!-- Box above the clickable boxes -->
+      <div class="box">{{ boxWords.options_camel_case.original_word }}</div>
+
+      <!-- Four clickable boxes side by side -->
+      <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box">
+        {{ word }}
+      </div>
+
+    </div>
+    <div v-else>
+
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-  // Add component logic here
   data() {
     return {
       totalExperiments: 10,
       currentExperiment: 1,
-      boxWords: ['Box 1', 'Box 2', 'Box 3', 'Box 4', 'Box 5'],
+      boxWords: {
+        options_camel_case: [],
+        options_kebab_case: []
+      },
+      currentCase: 'camelCase', // Initial case
     };
   },
   methods: {
-    boxClicked(index) {
-      // Handle box click event
-      console.log('Box clicked:', index);
+    async fetchBoxWords() {
+      try {
+        const response = await axios.get('http://localhost:5000/words');
+        this.boxWords = response.data;
+        console.log('Fetched words:', this.boxWords);
+      } catch (error) {
+        console.error('Error fetching words:', error);
+      }
     },
+    boxClicked(word) {
+      // Handle box click event
+      console.log('Box clicked:', word);
+    },
+    toggleCase() {
+      // Toggle between camelCase and kebab-case
+      this.currentCase = this.currentCase === 'camelCase' ? 'kebabCase' : 'camelCase';
+    },
+  },
+  computed: {
+    currentWords() {
+      // Return words based on the current case
+      return this.currentCase === 'camelCase' ? this.boxWords.options_camel_case.options_camel_case : this.boxWords.options_kebab_case.options_kebab_case;
+    },
+    buttonText() {
+      // Return the button text based on the current case
+      return this.currentCase === 'camelCase' ? 'change to kebab-case' : 'change to camelCase';
+    },
+  },
+  mounted() {
+    this.fetchBoxWords();
   },
 };
 </script>

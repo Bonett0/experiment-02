@@ -69,19 +69,19 @@ def generate_distractors(correct_answer):
 
     return distractors
 
-words_examples = [
-    'web App', 'mobile App', 'database', 'user Interface',
-    'code Example', 'programming Language', 'software Development', 'application Framework',
-    'algorithm Design', 'functionality Test', 'variable Declaration', 'class Definition',
-    'machine Learning', 'data Science', 'neural Network', 'visualization Technique',
-    'cloud Computing', 'backend Development', 'frontend Framework', 'software Framework',
-    'authentication Method', 'authorization Process', 'security Protocol', 'encryption Algorithm'
-]
+# words_examples = [
+#     'web App', 'mobile App', 'database', 'user Interface',
+#     'code Example', 'programming Language', 'software Development', 'application Framework',
+#     'algorithm Design', 'functionality Test', 'variable Declaration', 'class Definition',
+#     'machine Learning', 'data Science', 'neural Network', 'visualization Technique',
+#     'cloud Computing', 'backend Development', 'frontend Framework', 'software Framework',
+#     'authentication Method', 'authorization Process', 'security Protocol', 'encryption Algorithm'
+# ]
 
-task_example = generate_task(random.choice(words_examples))
+# task_example = generate_task(random.choice(words_examples))
 
-print("Original Word:", task_example['original_word'])
-print("CamelCase Options:", task_example['options_camel_case'])
-print("Kebab-case Options:", task_example['options_kebab_case'])
-print("Correct CamelCase:", task_example['correct_camel_case'])
-print("Correct Kebab-case:", task_example['correct_kebab_case'])
+# print("Original Word:", task_example['original_word'])
+# print("CamelCase Options:", task_example['options_camel_case'])
+# print("Kebab-case Options:", task_example['options_kebab_case'])
+# print("Correct CamelCase:", task_example['correct_camel_case'])
+# print("Correct Kebab-case:", task_example['correct_kebab_case'])
