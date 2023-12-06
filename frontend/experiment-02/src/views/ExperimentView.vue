@@ -51,6 +51,8 @@ export default {
 
         if (this.counter === this.totalExperiments) {
           // Redirect to a new page after 10 experiments
+          await this.submitAnswerData();
+          await this.writeAnswerDataToCSV();
           this.$router.push('/end-view');
         }
       } catch (error) {
@@ -65,7 +67,10 @@ export default {
       const timeTaken = endTime - startTime; // Calculate the time taken to click the box
 
       // Save the answer data
-      this.answersData.push({
+      if (!this.answersData[this.currentExperiment]) {
+        this.answersData[this.currentExperiment] = [];
+      }
+      this.answersData[this.currentExperiment].push({
         word: this.boxWords.original_word,
         clickedWord: word,
         isCorrect,
@@ -75,6 +80,22 @@ export default {
       this.counter = this.counter + 1;
       this.currentExperiment = this.currentExperiment + 1;
       this.fetchBoxWords();
+    },
+    async submitAnswerData() {
+      try {
+        const response = await axios.post('http://localhost:5000/submit-answer', this.answersData);
+        console.log('Submitted answer data:', response.data);
+      } catch (error) {
+        console.error('Error submitting answer data:', error);
+      }
+    },
+    async writeAnswerDataToCSV() {
+      try {
+        const response = await axios.get('http://localhost:5000/write-to-csv');
+        console.log('CSV file written successfully:', response.data);
+      } catch (error) {
+        console.error('Error writing to CSV:', error);
+      }
     },
   },
   computed: {
