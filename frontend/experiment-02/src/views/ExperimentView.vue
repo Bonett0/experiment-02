@@ -2,7 +2,7 @@
   <div>
     <h1>Experiment {{ this.currentExperiment }}</h1>
 
-    <div v-if="counter < 5" >
+    <div v-if="counter < 5">
 
       <!-- Box above the clickable boxes -->
       <div class="box">{{ boxWords.options_camel_case.original_word }}</div>
@@ -39,6 +39,7 @@ export default {
       },
       currentCase: 'camelCase', // Initial case
       counter: 0,
+      answersData: [],
     };
   },
   methods: {
@@ -47,12 +48,30 @@ export default {
         const response = await axios.get('http://localhost:5000/words');
         this.boxWords = response.data;
         console.log('Fetched words:', this.boxWords);
+
+        if (this.counter === this.totalExperiments) {
+          // Redirect to a new page after 10 experiments
+          this.$router.push('/end-view');
+        }
       } catch (error) {
         console.error('Error fetching words:', error);
       }
     },
     boxClicked(word) {
       // Handle box click event
+      const startTime = new Date().getTime(); // Get the current time in milliseconds
+      const isCorrect = word === this.boxWords[this.currentCase].original_word; // Check if the clicked word is correct
+      const endTime = new Date().getTime(); // Get the current time in milliseconds
+      const timeTaken = endTime - startTime; // Calculate the time taken to click the box
+
+      // Save the answer data
+      this.answersData.push({
+        word: this.boxWords[this.currentCase].original_word,
+        clickedWord: word,
+        isCorrect,
+        timeTaken,
+      });
+
       this.counter = this.counter + 1;
       this.currentExperiment = this.currentExperiment + 1;
       this.fetchBoxWords();
