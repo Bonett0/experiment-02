@@ -1,0 +1,87 @@
+import re
+import random
+
+def generate_task(sentence):
+    correct_camel_case = to_camel_case(sentence)
+    correct_kebab_case = to_kebab_case(sentence)
+
+    # Generate distractors
+    distractors_camel_case = generate_distractors(correct_camel_case)
+    distractors_kebab_case = generate_distractors(correct_kebab_case)
+
+    # Shuffle options to avoid bias
+    options_camel_case = random.sample([correct_camel_case] + distractors_camel_case, k=4)
+    options_kebab_case = random.sample([correct_kebab_case] + distractors_kebab_case, k=4)
+
+    # Create the result object
+    result_object = {
+        'original_word': sentence,
+        'options_camel_case': options_camel_case,
+        'options_kebab_case': options_kebab_case,
+        'correct_camel_case': correct_camel_case,
+        'correct_kebab_case': correct_kebab_case
+    }
+
+    return result_object
+
+def to_camel_case(sentence):
+    # Remove punctuation
+    sentence = re.sub(r'[^\w\s]', '', sentence)
+
+    # Split sentence into words
+    words = sentence.split()
+
+    # let the first word be lowercase
+    words[0] = words[0].lower()
+
+    # Capitalize the other words
+    for i in range(1, len(words)):
+        words[i] = words[i].capitalize()
+
+    # Join words together
+    return ''.join(words)
+
+def to_kebab_case(sentence):
+    # Remove punctuation
+    sentence = re.sub(r'[^\w\s]', '', sentence)
+
+    # Split sentence into words
+    words = sentence.split()
+
+    # Join words together with hyphens
+    return '-'.join(words)
+
+def generate_distractors(correct_answer):
+    # Generate distractors
+    distractors = []
+    for i in range(3):
+        # Generate random index
+        random_index = random.randint(0, len(correct_answer) - 1)
+
+        # Generate random character
+        random_char = chr(random.randint(97, 122))
+
+        # Insert random character at random index
+        distractor = correct_answer[:random_index] + random_char + correct_answer[random_index:]
+
+        # Add distractor to list
+        distractors.append(distractor)
+
+    return distractors
+
+words_examples = [
+    'web App', 'mobile App', 'database', 'user Interface',
+    'code Example', 'programming Language', 'software Development', 'application Framework',
+    'algorithm Design', 'functionality Test', 'variable Declaration', 'class Definition',
+    'machine Learning', 'data Science', 'neural Network', 'visualization Technique',
+    'cloud Computing', 'backend Development', 'frontend Framework', 'software Framework',
+    'authentication Method', 'authorization Process', 'security Protocol', 'encryption Algorithm'
+]
+
+task_example = generate_task(random.choice(words_examples))
+
+print("Original Word:", task_example['original_word'])
+print("CamelCase Options:", task_example['options_camel_case'])
+print("Kebab-case Options:", task_example['options_kebab_case'])
+print("Correct CamelCase:", task_example['correct_camel_case'])
+print("Correct Kebab-case:", task_example['correct_kebab_case'])
