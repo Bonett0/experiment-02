@@ -2,10 +2,7 @@
   <div>
     <h1>Experiment {{ this.currentExperiment }}</h1>
 
-    <!-- Toggle button for camelCase or kebab-case -->
-    <button @click="toggleCase">{{ buttonText }}</button>
-
-    <div v-if="this.counter < 5" >
+    <div v-if="counter < 5" >
 
       <!-- Box above the clickable boxes -->
       <div class="box">{{ boxWords.options_camel_case.original_word }}</div>
@@ -37,8 +34,8 @@ export default {
       totalExperiments: 10,
       currentExperiment: 1,
       boxWords: {
-        options_camel_case: [],
-        options_kebab_case: []
+        options_camel_case: { original_word: '', options_camel_case: [] },
+        options_kebab_case: { original_word: '', options_kebab_case: [] }
       },
       currentCase: 'camelCase', // Initial case
       counter: 0,
@@ -58,24 +55,15 @@ export default {
       // Handle box click event
       this.counter = this.counter + 1;
       this.currentExperiment = this.currentExperiment + 1;
-      console.log('Counter:', this.counter);
-      console.log('Box clicked:', word);
       this.fetchBoxWords();
-
-    },
-    toggleCase() {
-      // Toggle between camelCase and kebab-case
-      this.currentCase = this.currentCase === 'camelCase' ? 'kebabCase' : 'camelCase';
     },
   },
   computed: {
     currentWords() {
-      // Return words based on the current case
-      return this.currentCase === 'camelCase' ? this.boxWords.options_camel_case.options_camel_case : this.boxWords.options_kebab_case.options_kebab_case;
-    },
-    buttonText() {
-      // Return the button text based on the current case
-      return this.currentCase === 'camelCase' ? 'change to kebab-case' : 'change to camelCase';
+      // Return words based on the current case and counter value
+      return this.counter < 5
+          ? this.currentCase === 'camelCase' ? this.boxWords.options_camel_case.options_camel_case : []
+          : this.boxWords.options_kebab_case.options_kebab_case;
     },
   },
   mounted() {
