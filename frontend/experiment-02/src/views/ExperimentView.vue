@@ -2,7 +2,7 @@
   <div>
     <h1>Experiment {{ this.currentExperiment }}</h1>
 
-    <div v-if="counter < 5">
+    <div v-if="this.counter < 5">
 
       <!-- Box above the clickable boxes -->
       <div class="box">{{ boxWords.options_camel_case.original_word }}</div>
@@ -58,38 +58,33 @@ export default {
     },
     boxClicked(word) {
       // Handle box click event
-      const startTime = new Date().getTime(); // Get the current time in milliseconds
+      const startTime = new Date().getTime();
       let isCorrect = "";
-      if (this.currentCase === "camelCase") {
-        isCorrect = word === this.boxWords.options_camel_case.original_word
-      } else {
-        isCorrect = word === this.boxWords.options_kebab_case.original_word
-      }
-      // const isCorrect = word === this.boxWords.original_word; // Check if the clicked word is correct
-      const endTime = new Date().getTime(); // Get the current time in milliseconds
-      const timeTaken = endTime - startTime; // Calculate the time taken to click the box
 
-      // // Save the answer data
-      // if (!this.answersData[this.currentExperiment]) {
-      //   this.answersData[this.currentExperiment] = [];
-      // }
-      // this.answersData[this.currentExperiment].push({
-      //   word: this.boxWords.original_word,
-      //   clickedWord: word,
-      //   isCorrect,
-      //   timeTaken,
-      // });
+      if (this.currentCase === "camelCase") {
+        isCorrect = word === this.boxWords.options_camel_case.correct_camel_case;
+      } else {
+        isCorrect = word === this.boxWords.options_kebab_case.correct_kebab_case;
+      }
+
+      const endTime = new Date().getTime();
+      const timeTaken = endTime - startTime;
+
       let answerData = {
         word: this.currentCase === "camelCase" ? this.boxWords.options_camel_case.original_word : this.boxWords.options_kebab_case.original_word,
         clickedWord: word,
         isCorrect,
         timeTaken
-      }
+      };
+
+      // Update currentCase after using it
+      this.currentCase = this.counter < 5 ? 'camelCase' : 'kebabCase';
 
       this.submitAnswerData(answerData);
       this.counter = this.counter + 1;
       this.currentExperiment = this.currentExperiment + 1;
       this.fetchBoxWords();
+      console.log("currentCase", this.currentCase);  // Move the console.log here
     },
     async submitAnswerData(answerData) {
       try {

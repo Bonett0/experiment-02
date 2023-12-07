@@ -8,9 +8,7 @@ import csv
 app = Flask(__name__)
 CORS(app)
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+used_words = set()  # Keep track of used words
 
 @app.route('/words', methods=['GET'])
 def get_words():
@@ -23,7 +21,18 @@ def get_words():
         'authentication Method', 'authorization Process', 'security Protocol', 'encryption Algorithm'
     ]
 
-    test_word = random.choice(words_examples)
+    # Filter out used words
+    available_words = [word for word in words_examples if word not in used_words]
+
+    # If all words have been used, reset the used_words set
+    if not available_words:
+        used_words.clear()
+        available_words = words_examples
+
+    test_word = random.choice(available_words)
+
+    # Add the chosen word to the set of used words
+    used_words.add(test_word)
 
     result_object = {
         'options_camel_case': word_generator.generate_task(test_word),
