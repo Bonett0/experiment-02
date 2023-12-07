@@ -39,11 +39,13 @@ export default {
       },
       currentCase: 'camelCase', // Initial case
       counter: 0,
+      startTime: null,
     };
   },
   methods: {
     async fetchBoxWords() {
       try {
+        this.startTime = performance.now();
         const response = await axios.get('http://localhost:5000/words');
         this.boxWords = response.data;
         console.log('Fetched words:', this.boxWords);
@@ -58,7 +60,8 @@ export default {
     },
     boxClicked(word) {
       // Handle box click event
-      const startTime = new Date().getTime();
+      const endTime = performance.now();
+      const timeTaken = endTime - this.startTime;
       let isCorrect = "";
 
       if (this.currentCase === "camelCase") {
@@ -67,8 +70,6 @@ export default {
         isCorrect = word === this.boxWords.options_kebab_case.correct_kebab_case;
       }
 
-      const endTime = new Date().getTime();
-      const timeTaken = endTime - startTime;
 
       let answerData = {
         word: this.currentCase === "camelCase" ? this.boxWords.options_camel_case.original_word : this.boxWords.options_kebab_case.original_word,
@@ -84,7 +85,7 @@ export default {
       this.counter = this.counter + 1;
       this.currentExperiment = this.currentExperiment + 1;
       this.fetchBoxWords();
-      console.log("currentCase", this.currentCase);  // Move the console.log here
+      console.log("currentCase", this.currentCase);
     },
     async submitAnswerData(answerData) {
       try {
