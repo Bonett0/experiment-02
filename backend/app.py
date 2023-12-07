@@ -131,9 +131,6 @@ def get_words():
 
     return jsonify(result_object)
 
-answer_data_list = []
-exp_number = 1  # Initialize outside the loop
-
 exp_number = 1
 answer_data_list = []
 
@@ -187,7 +184,7 @@ def submit_and_export():
                     'TimeTaken': answer_data.get('timeTaken', ''),
                 })
 
-            exp_number += 1  # Increment exp_number here
+            exp_number += 1  # Increment exp_number 
 
     # Clear the answer_data_list after exporting to CSV
     answer_data_list.clear()

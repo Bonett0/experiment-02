@@ -7,7 +7,7 @@ import ExperimentView from '../views/ExperimentView.vue';
 import EndView from '../views/EndView.vue';
 
 const routes = [
-  { path: '/', component: WelcomePageView },
+  { path: '/', name: 'welcome', component: WelcomePageView },
   { path: '/personal-info', component: PersonalInformationView },
   { path: '/experiment/:participantData', name: 'Experiment', component: ExperimentView },
   { path: '/end-view', component: EndView },
