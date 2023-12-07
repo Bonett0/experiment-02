@@ -85,7 +85,12 @@ export default {
 
       // Start experiment route after countdown
       setTimeout(() => {
-        this.$router.push('/experiment');
+        this.$router.push({
+          name: 'Experiment',
+          params: {
+            participantData: JSON.stringify(this.participantData),
+          },
+        });
       }, (this.countdown + 1) * 1000);
     },
     showCountdown() {

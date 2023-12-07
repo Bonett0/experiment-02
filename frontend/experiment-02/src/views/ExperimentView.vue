@@ -70,8 +70,12 @@ export default {
         isCorrect = word === this.boxWords.options_kebab_case.correct_kebab_case;
       }
 
-
       let answerData = {
+        age: this.participantData.age,
+        gender: this.participantData.gender,
+        programming_experience: this.participantData.programmingExperience,
+        camel_case_familiarity: this.participantData.familiarityCamelCase,
+        kebab_case_familiarity: this.participantData.familiarityKebabCase,
         word: this.currentCase === "camelCase" ? this.boxWords.options_camel_case.original_word : this.boxWords.options_kebab_case.original_word,
         clickedWord: word,
         isCorrect,
@@ -118,6 +122,12 @@ export default {
   mounted() {
     this.fetchBoxWords();
   },
+  created() {
+    const participantData = this.$route.params.participantData;
+    if (participantData) {
+      this.participantData = JSON.parse(participantData);
+    }
+  }
 };
 </script>
 
