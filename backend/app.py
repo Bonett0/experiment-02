@@ -37,21 +37,29 @@ answer_data = []
 @app.route('/submit-answer', methods=['POST'])
 def submit_answer():
     data = request.get_json()
+    print(data)
+    
+    # Clean the data
+    cleaned_data = {
+        'word': data.get('word'),
+        'clickedWord': data.get('clickedWord'),
+        'isCorrect': data.get('isCorrect'),
+        'timeTaken': data.get('timeTaken')
+    }
 
-    # Add the received answer data to the answer_data list
-    answer_data.append(data)
+    write_to_csv(cleaned_data)
+
 
     return jsonify({'message': 'Answer received successfully'})
 
-@app.route('/write-to-csv', methods=['GET'])
-def write_to_csv():
+def write_to_csv(data):
     # Write the answer_data to a CSV file
-    with open('answers.csv', 'w', newline='') as csvfile:
+    print(data)
+    with open('answers.csv', 'a', newline='') as csvfile:
         fieldnames = ['word', 'clickedWord', 'isCorrect', 'timeTaken']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-        writer.writeheader()
-        writer.writerows(answer_data)
+        writer.writerow(data)
 
     return jsonify({'message': 'CSV file written successfully'})
 
