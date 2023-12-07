@@ -39,7 +39,6 @@ export default {
       },
       currentCase: 'camelCase', // Initial case
       counter: 0,
-      answersData: {},
     };
   },
   methods: {
@@ -60,30 +59,53 @@ export default {
     boxClicked(word) {
       // Handle box click event
       const startTime = new Date().getTime(); // Get the current time in milliseconds
-      const isCorrect = word === this.boxWords.original_word; // Check if the clicked word is correct
+      let isCorrect = "";
+      if (this.currentCase === "camelCase") {
+        isCorrect = word === this.boxWords.options_camel_case.original_word
+      } else {
+        isCorrect = word === this.boxWords.options_kebab_case.original_word
+      }
+      // const isCorrect = word === this.boxWords.original_word; // Check if the clicked word is correct
       const endTime = new Date().getTime(); // Get the current time in milliseconds
       const timeTaken = endTime - startTime; // Calculate the time taken to click the box
 
-      // Save the answer data
-      if (!this.answersData[this.currentExperiment]) {
-        this.answersData[this.currentExperiment] = [];
-      }
-      this.answersData[this.currentExperiment].push({
-        word: this.boxWords.original_word,
+      // // Save the answer data
+      // if (!this.answersData[this.currentExperiment]) {
+      //   this.answersData[this.currentExperiment] = [];
+      // }
+      // this.answersData[this.currentExperiment].push({
+      //   word: this.boxWords.original_word,
+      //   clickedWord: word,
+      //   isCorrect,
+      //   timeTaken,
+      // });
+      let answerData = {
+        word: this.currentCase === "camelCase" ? this.boxWords.options_camel_case.original_word : this.boxWords.options_kebab_case.original_word,
         clickedWord: word,
         isCorrect,
-        timeTaken,
-      });
+        timeTaken
+      }
 
-      this.submitAnswerData();
+      this.submitAnswerData(answerData);
       this.counter = this.counter + 1;
       this.currentExperiment = this.currentExperiment + 1;
       this.fetchBoxWords();
     },
-    async submitAnswerData() {
+    async submitAnswerData(answerData) {
       try {
-        const response = await axios.post('http://localhost:5000/submit-answer', this.answersData);
+        // Make a POST request to the combined endpoint
+        const response = await axios.post('http://localhost:5000/submit-and-export', answerData);
         console.log('Submitted answer data:', response.data);
+
+        // Check if it's time to export to CSV (e.g., after 10 experiments)
+        if (this.counter === this.totalExperiments) {
+          // Make a GET request to trigger CSV export
+          const exportResponse = await axios.get('http://localhost:5000/submit-and-export');
+          console.log('Exported answer data to CSV:', exportResponse.data);
+
+          // Optionally, you can redirect to a new page after exporting to CSV
+          this.$router.push('/end-view');
+        }
       } catch (error) {
         console.error('Error submitting answer data:', error);
       }

@@ -32,36 +32,48 @@ def get_words():
 
     return jsonify(result_object)
 
-answer_data = []
+answer_data_list = []
 
-@app.route('/submit-answer', methods=['POST'])
-def submit_answer():
-    data = request.get_json()
-    print(data)
+# Define the route to handle both submitting and exporting answer data
+@app.route('/submit-and-export', methods=['POST', 'GET'])
+def submit_and_export():
+    if request.method == 'POST':
+        # Handle POST request to submit answer data
+        answer_data = request.get_json()
+
+        # Append experiment information to the answer data
+        experiment_info = f"Experiment {len(answer_data_list) + 1}"
+        answer_data_with_info = {**answer_data, 'experiment_info': experiment_info}
+
+        # Append answer data to the in-memory list
+        answer_data_list.append(answer_data_with_info)
+
+        return jsonify({"message": "Answer data submitted successfully"})
     
-    # Clean the data
-    cleaned_data = {
-        'word': data.get('word'),
-        'clickedWord': data.get('clickedWord'),
-        'isCorrect': data.get('isCorrect'),
-        'timeTaken': data.get('timeTaken')
-    }
+    elif request.method == 'GET':
+        # Handle GET request to export answer data to a CSV file
 
-    write_to_csv(cleaned_data)
+        # Define the CSV file path
+        csv_file_path = 'answer_data.csv'
 
+        # Define CSV header
+        csv_header = ['experiment_info', 'word', 'clickedWord', 'isCorrect', 'timeTaken']
 
-    return jsonify({'message': 'Answer received successfully'})
+        # Write answer data to CSV file
+        with open(csv_file_path, 'a', newline='') as csv_file:
+            writer = csv.DictWriter(csv_file, fieldnames=csv_header)
 
-def write_to_csv(data):
-    # Write the answer_data to a CSV file
-    print(data)
-    with open('answers.csv', 'a', newline='') as csvfile:
-        fieldnames = ['word', 'clickedWord', 'isCorrect', 'timeTaken']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            # Write a newline to separate experiments in the CSV file
+            csv_file.write("\n")
 
-        writer.writerow(data)
+            # Write experiment information and answer data to CSV file
+            for answer_data in answer_data_list:
+                writer.writerow(answer_data)
 
-    return jsonify({'message': 'CSV file written successfully'})
+    # Clear the answer_data_list after exporting to CSV
+    answer_data_list.clear()
+
+    return jsonify({"message": f"Answer data exported to {csv_file_path} successfully"})
 
 if __name__ == '__main__':
     app.run(debug=True)
