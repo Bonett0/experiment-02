@@ -52,7 +52,12 @@
       complete the task.
     </p>
 
-    <button v-if="!flagCountdown" class="start-button" @click="startExperiment">Start Experiment</button>
+    <div class="button-container">
+      <button v-if="!flagCountdown" class="start-button" @click="startExperimentUno">Start Experiment One</button>
+      <button v-if="!flagCountdown" class="start-button" @click="startExperimentDue">Start Experiment Two</button>
+      <button v-if="!flagCountdown" class="start-button" @click="startExperimentTre">Start Experiment Three</button>
+    </div>
+
     <div v-if="flagCountdown" class="countdown">{{ countdown }}</div>
   </div>
 </template>
@@ -78,7 +83,7 @@ export default {
       console.log('Participant Data:', this.participantData);
       this.statingExperiment = true;
     },
-    startExperiment() {
+    startExperimentUno() {
       // Show countdown
       this.flagCountdown = true;
       this.showCountdown();
@@ -86,7 +91,37 @@ export default {
       // Start experiment route after countdown
       setTimeout(() => {
         this.$router.push({
-          name: 'Experiment',
+          name: 'ExperimentUno',
+          params: {
+            participantData: JSON.stringify(this.participantData),
+          },
+        });
+      }, (this.countdown + 1) * 1000);
+    },
+    startExperimentDue() {
+      // Show countdown
+      this.flagCountdown = true;
+      this.showCountdown();
+
+      // Start experiment route after countdown
+      setTimeout(() => {
+        this.$router.push({
+          name: 'ExperimentDue',
+          params: {
+            participantData: JSON.stringify(this.participantData),
+          },
+        });
+      }, (this.countdown + 1) * 1000);
+    },
+    startExperimentTre() {
+      // Show countdown
+      this.flagCountdown = true;
+      this.showCountdown();
+
+      // Start experiment route after countdown
+      setTimeout(() => {
+        this.$router.push({
+          name: 'ExperimentTre',
           params: {
             participantData: JSON.stringify(this.participantData),
           },
@@ -185,4 +220,14 @@ button:hover {
   text-align: center;
   margin-top: 20px;
 }
+.button-container {
+  display: flex;
+  justify-content: space-between; /* or space-around, space-evenly, etc. depending on your preference */
+}
+
+.start-button {
+  /* Your button styles here */
+  margin-right: 10px; /* Adjust the margin as needed for spacing */
+}
+
 </style>

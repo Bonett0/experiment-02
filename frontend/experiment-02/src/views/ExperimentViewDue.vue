@@ -70,12 +70,16 @@ export default {
         isCorrect = word === this.boxWords.options_kebab_case.correct_kebab_case;
       }
 
+      this.currentCase = this.counter < 5 ? 'camelCase' : 'kebabCase';
+
       let answerData = {
+        ex:2,
         age: this.participantData.age,
         gender: this.participantData.gender,
         programming_experience: this.participantData.programmingExperience,
         camel_case_familiarity: this.participantData.familiarityCamelCase,
         kebab_case_familiarity: this.participantData.familiarityKebabCase,
+        type: this.currentCase === "camelCase" ? "camelCase" : "kebabCase",
         word: this.currentCase === "camelCase" ? this.boxWords.options_camel_case.original_word : this.boxWords.options_kebab_case.original_word,
         clickedWord: word,
         isCorrect,
@@ -83,7 +87,7 @@ export default {
       };
 
       // Update currentCase after using it
-      this.currentCase = this.counter < 5 ? 'camelCase' : 'kebabCase';
+
 
       this.submitAnswerData(answerData);
       this.counter = this.counter + 1;
@@ -159,4 +163,5 @@ h1 {
 .clickable-box:hover {
   transform: scale(1.1); /* Increase the size on hover */
 }
+
 </style>
