@@ -18,8 +18,19 @@ def get_words():
         'algorithm Design', 'functionality Test', 'variable Declaration', 'class Definition',
         'machine Learning', 'data Science', 'neural Network', 'visualization Technique',
         'cloud Computing', 'backend Development', 'frontend Framework', 'software Framework',
-        'authentication Method', 'authorization Process', 'security Protocol', 'encryption Algorithm'
+        'authentication Method', 'authorization Process', 'security Protocol', 'encryption Algorithm',
+        'open Source Project', 'agile Software Development', 'version Control System',
+        'responsive Web Design', 'internet of Things', 'continuous Integration',
+        'full Stack Development', 'graphical User Interface', 'artificial Intelligence',
+        'data Privacy Policy', 'user Experience Design', 'responsive Mobile Design',
+        'distributed Systems Design', 'object Oriented Programming', 'data Visualization Tool',
+        'blockchain Technology', 'internet Security Protocol', 'networking Protocol Stack',
+        'software Quality Assurance', 'virtual Reality Application', 'cross Platform Compatibility',
+        'machine Learning Algorithm', 'cloud Infrastructure Management', 'software as a Service',
+        'data Encryption Standard', 'real Time Operating System', 'artificial Neural Network',
+        'natural Language Processing', 'computer Vision System', 'computer Science Education'
     ]
+
 
     # Filter out used words
     available_words = [word for word in words_examples if word not in used_words]
@@ -108,7 +119,17 @@ def get_words():
         'algorithm Design', 'functionality Test', 'variable Declaration', 'class Definition',
         'machine Learning', 'data Science', 'neural Network', 'visualization Technique',
         'cloud Computing', 'backend Development', 'frontend Framework', 'software Framework',
-        'authentication Method', 'authorization Process', 'security Protocol', 'encryption Algorithm'
+        'authentication Method', 'authorization Process', 'security Protocol', 'encryption Algorithm',
+        'open Source Project', 'agile Software Development', 'version Control System',
+        'responsive Web Design', 'internet of Things', 'continuous Integration',
+        'full Stack Development', 'graphical User Interface', 'artificial Intelligence',
+        'data Privacy Policy', 'user Experience Design', 'responsive Mobile Design',
+        'distributed Systems Design', 'object Oriented Programming', 'data Visualization Tool',
+        'blockchain Technology', 'internet Security Protocol', 'networking Protocol Stack',
+        'software Quality Assurance', 'virtual Reality Application', 'cross Platform Compatibility',
+        'machine Learning Algorithm', 'cloud Infrastructure Management', 'software as a Service',
+        'data Encryption Standard', 'real Time Operating System', 'artificial Neural Network',
+        'natural Language Processing', 'computer Vision System', 'computer Science Education'
     ]
 
     # Filter out used words
@@ -118,11 +139,19 @@ def get_words():
     if not available_words:
         used_words.clear()
         available_words = words_examples
+        print("Resetting used_words")
+
+    # Print for debugging
+    print("Used Words:", used_words)
+    print("Available Words:", available_words)
 
     test_word = random.choice(available_words)
 
     # Add the chosen word to the set of used words
     used_words.add(test_word)
+
+    # Print for debugging
+    print("Chosen Word:", test_word)
 
     result_object = {
         'options_camel_case': word_generator.generate_task(test_word),
@@ -130,6 +159,7 @@ def get_words():
     }
 
     return jsonify(result_object)
+
 
 exp_number = 1
 answer_data_list = []
