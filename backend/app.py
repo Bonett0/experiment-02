@@ -13,22 +13,21 @@ used_words = set()  # Keep track of used words
 @app.route('/words', methods=['GET'])
 def get_words():
     words_examples = [
-        'web App', 'mobile App', 'database', 'user Interface',
-        'code Example', 'programming Language', 'software Development', 'application Framework',
-        'algorithm Design', 'functionality Test', 'variable Declaration', 'class Definition',
-        'machine Learning', 'data Science', 'neural Network', 'visualization Technique',
-        'cloud Computing', 'backend Development', 'frontend Framework', 'software Framework',
-        'authentication Method', 'authorization Process', 'security Protocol', 'encryption Algorithm',
-        'open Source Project', 'agile Software Development', 'version Control System',
-        'responsive Web Design', 'internet of Things', 'continuous Integration',
-        'full Stack Development', 'graphical User Interface', 'artificial Intelligence',
-        'data Privacy Policy', 'user Experience Design', 'responsive Mobile Design',
-        'distributed Systems Design', 'object Oriented Programming', 'data Visualization Tool',
-        'blockchain Technology', 'internet Security Protocol', 'networking Protocol Stack',
-        'software Quality Assurance', 'virtual Reality Application', 'cross Platform Compatibility',
-        'machine Learning Algorithm', 'cloud Infrastructure Management', 'software as a Service',
-        'data Encryption Standard', 'real Time Operating System', 'artificial Neural Network',
-        'natural Language Processing', 'computer Vision System', 'computer Science Education'
+        'web App', 'mobile App', 'user Interface', 'code Example', 'programming Language', 
+        'software Development', 'application Framework', 'algorithm Design', 'functionality Test',
+        'variable Declaration', 'class Definition', 'machine Learning', 'data Science',
+        'neural Network', 'visualization Technique', 'cloud Computing', 'backend Development', 
+        'frontend Framework', 'software Framework', 'authentication Method', 'authorization Process', 
+        'security Protocol', 'encryption Algorithm', 'open Source Project', 'agile Software Development', 
+        'version Control System', 'responsive Web Design', 'internet of Things', 
+        'continuous Integration', 'full Stack Development', 'graphical User Interface', 
+        'artificial Intelligence', 'data Privacy Policy', 'user Experience Design', 
+        'responsive Mobile Design', 'distributed Systems Design', 'object Oriented Programming', 
+        'data Visualization Tool', 'blockchain Technology', 'internet Security Protocol', 
+        'networking Protocol Stack', 'software Quality Assurance', 'virtual Reality Application', 
+        'cross Platform Compatibility', 'machine Learning Algorithm', 'cloud Infrastructure Management', 
+        'software as a Service', 'data Encryption Standard', 'real Time Operating System', 
+        'artificial Neural Network', 'natural Language Processing', 'computer Vision System', 'computer Science Education'
     ]
 
 
@@ -129,7 +128,20 @@ def get_words():
         'software Quality Assurance', 'virtual Reality Application', 'cross Platform Compatibility',
         'machine Learning Algorithm', 'cloud Infrastructure Management', 'software as a Service',
         'data Encryption Standard', 'real Time Operating System', 'artificial Neural Network',
-        'natural Language Processing', 'computer Vision System', 'computer Science Education'
+        'natural Language Processing', 'computer Vision System', 'computer Science Education',
+        'ocean Exploration', 'modern Art Movement', 'historical Landmark', 'culinary Delight',
+        'outer Space Discovery', 'ancient Civilization', 'musical Composition', 'wildlife Conservation',
+        'innovative Architecture', 'cultural Heritage', 'literary Masterpiece', 'adventurous Expedition',
+        'scientific Breakthrough', 'global Environmental Issue', 'exotic Travel Destination', 'philosophical Concept',
+        'innovative Technology', 'natural Wonders', 'humanitarian Effort', 'sports Achievement',
+        'vibrant Cultural Festival', 'archaeological Discovery', 'astronomical Phenomenon', 'botanical Diversity',
+        'timeless Fashion Trend', 'celestial Navigation', 'marine Biology Study', 'culinary Fusion',
+        'sustainable Energy Solution', 'artistic Expression', 'mind-bending Puzzle', 'spectacular Natural Beauty',
+        'extraterrestrial Life', 'architectural Marvel', 'educational Initiative', 'ethical Business Practices',
+        'mindful Living', 'experimental Music Genre', 'social Justice Movement', 'ancient Wisdom',
+        'courageous Humanitarian Effort', 'spiritual Enlightenment', 'innovative Sustainable Design',
+        'culinary Adventure', 'captivating Performance Art', 'historical Fiction Novel', 'intrepid Explorer',
+        'cultural Diversity Celebration', 'medical Breakthrough', 'inspiring Leadership', 'community Empowerment'
     ]
 
     # Filter out used words
