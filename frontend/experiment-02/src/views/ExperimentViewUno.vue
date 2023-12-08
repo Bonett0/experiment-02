@@ -10,6 +10,7 @@
       <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box">
         {{ word }}
       </div>
+      <div class="clear-float"></div>
 
     </div>
     <div v-else>
@@ -19,6 +20,7 @@
       <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box">
         {{ word }}
       </div>
+      <div class="clear-float"></div>
 
     </div>
   </div>
