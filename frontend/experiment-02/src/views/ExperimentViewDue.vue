@@ -8,9 +8,12 @@
       <div class="box">{{ boxWords.options_camel_case.original_word }}</div>
 
       <!-- Four clickable boxes side by side -->
-      <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box">
+      <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box" :style="{ 'float': index % 2 === 0 ? 'left' : 'none' }">
         {{ word }}
       </div>
+
+      <!-- Clear the float to start a new row -->
+      <div class="clear-float"></div>
 
     </div>
     <div v-else>
@@ -18,9 +21,13 @@
       <div class="box">{{ boxWords.options_kebab_case.original_word }}</div>
 
       <!-- Four clickable boxes side by side -->
-      <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box">
+      <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box" :style="{ 'float': index % 2 === 0 ? 'left' : 'none' }">
         {{ word }}
       </div>
+
+      <!-- Clear the float to start a new row -->
+      <div class="clear-float"></div>
+
     </div>
   </div>
 </template>
@@ -158,6 +165,9 @@ h1 {
   cursor: pointer;
   display: inline-block;
   transition: transform 0.3s; /* Smooth transition for the transform property */
+  width: 48%; /* Set the width to 48% to fit two boxes in a row */
+  box-sizing: border-box; /* Include padding and border in the box's total width */
+
 }
 
 .clickable-box:hover {
