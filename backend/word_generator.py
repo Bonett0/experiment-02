@@ -1,5 +1,6 @@
 import re
 import random
+import uuid
 
 def generate_task(sentence):
     correct_camel_case = to_camel_case(sentence)
@@ -48,6 +49,9 @@ def to_kebab_case(sentence):
     # Split sentence into words
     words = sentence.split()
 
+    # Convert words to lowercase
+    words = [word.lower() for word in words]
+
     # Join words together with hyphens
     return '-'.join(words)
 
@@ -68,3 +72,11 @@ def generate_distractors(correct_answer):
         distractors.append(distractor)
 
     return distractors
+
+def generate_random_user_id():
+    return str(uuid.uuid4())
+    
+
+
+
+    

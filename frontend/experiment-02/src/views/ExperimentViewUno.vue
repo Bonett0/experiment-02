@@ -158,6 +158,9 @@ h1 {
   cursor: pointer;
   display: inline-block;
   transition: transform 0.3s; /* Smooth transition for the transform property */
+  width: 48%; /* Set the width to 48% to fit two boxes in a row */
+  box-sizing: border-box; /* Include padding and border in the box's total width */
+
 }
 
 .clickable-box:hover {

@@ -55,7 +55,6 @@
     <div class="button-container">
       <button v-if="!flagCountdown" class="start-button" @click="startExperimentUno">Start Experiment One</button>
       <button v-if="!flagCountdown" class="start-button" @click="startExperimentDue">Start Experiment Two</button>
-      <button v-if="!flagCountdown" class="start-button" @click="startExperimentTre">Start Experiment Three</button>
     </div>
 
     <div v-if="flagCountdown" class="countdown">{{ countdown }}</div>
@@ -107,21 +106,6 @@ export default {
       setTimeout(() => {
         this.$router.push({
           name: 'ExperimentDue',
-          params: {
-            participantData: JSON.stringify(this.participantData),
-          },
-        });
-      }, (this.countdown + 1) * 1000);
-    },
-    startExperimentTre() {
-      // Show countdown
-      this.flagCountdown = true;
-      this.showCountdown();
-
-      // Start experiment route after countdown
-      setTimeout(() => {
-        this.$router.push({
-          name: 'ExperimentTre',
           params: {
             participantData: JSON.stringify(this.participantData),
           },

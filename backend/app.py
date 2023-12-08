@@ -1,7 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import word_generator
-import generator
 import re
 import random
 import csv
@@ -45,7 +44,7 @@ def get_words():
         'cultural Diversity Celebration', 'medical Breakthrough', 'inspiring Leadership', 'community Empowerment'
     ]
 
-    # Filter out used words
+    # Filter out used words   
     available_words = [word for word in words_examples if word not in used_words]
 
     # If all words have been used, reset the used_words set
@@ -63,20 +62,18 @@ def get_words():
     # Add the chosen word to the set of used words
     used_words.add(test_word)
 
-    # Generate task
-    res = generator.retrieve_text()
     # Print for debugging
     print("Chosen Word:", test_word)
 
     result_object = {
-        'options_camel_case': res,
-        'options_kebab_case': res
+        'options_camel_case': word_generator.generate_task(test_word),
+        'options_kebab_case': word_generator.generate_task(test_word)
     }
 
     return jsonify(result_object)
 
-
 exp_number = 1
+
 answer_data_list = []
 
 @app.route('/submit-and-export', methods=['POST', 'GET'])
@@ -84,6 +81,7 @@ def submit_and_export():
     global exp_number  # Use the global exp_number
 
     if request.method == 'POST':
+
         # Handle POST request to submit answer data
         answer_data = request.get_json()
 
@@ -100,8 +98,8 @@ def submit_and_export():
 
         # Define CSV header
         csv_header = [
-            'ID','Experiment', 'Age', 'Gender', 'Programming Experience',
-            'camelCase Familiarity', 'kebab-case Familiarity', 'Type',
+            'User_ID','Experiment', 'Age', 'Gender', 'Programming Experience',
+            'camelCase Familiarity', 'kebab-case Familiarity',
             'Word', 'Clicked Word', 'IsCorrect', 'TimeTaken'
         ]
 
@@ -112,31 +110,31 @@ def submit_and_export():
             # If the file is empty, write the header
             if csv_file.tell() == 0:
                 writer.writeheader()
-            id_user = generator.generate_random_user_id()
+
+            user_id = word_generator.generate_random_user_id()
             # Write experiment information and answer data to CSV file
             for idx, answer_data in enumerate(answer_data_list, start=1):
-                experiment_info = f"Experiment {answer_data.get('ex', exp_number)}"
+                experiment_info = f"Experiment {exp_number}"
                 writer.writerow({
-                    'ID': id_user,
+                    'User_ID': user_id,
                     'Experiment': experiment_info,
                     'Age': answer_data.get('age', ''),
                     'Gender': answer_data.get('gender', ''),
                     'Programming Experience': answer_data.get('programming_experience', ''),
                     'camelCase Familiarity': answer_data.get('camel_case_familiarity', ''),
                     'kebab-case Familiarity': answer_data.get('kebab_case_familiarity', ''),
-                    'Type': answer_data.get('type', ''),
                     'Word': answer_data.get('word', ''),
                     'Clicked Word': answer_data.get('clickedWord', ''),
                     'IsCorrect': answer_data.get('isCorrect', ''),
                     'TimeTaken': answer_data.get('timeTaken', ''),
                 })
-
             exp_number += 1  # Increment exp_number 
-
+   
     # Clear the answer_data_list after exporting to CSV
     answer_data_list.clear()
-
+   
     return jsonify({"message": f"Answer data exported to {csv_file_path} successfully"})
+
 
 if __name__ == '__main__':
     app.run(debug=True)
