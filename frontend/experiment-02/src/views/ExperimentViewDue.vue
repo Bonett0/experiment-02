@@ -1,10 +1,8 @@
 <template>
   <div>
-    <!-- Button to start the second step -->
-    <button v-if="!experimentsStarted" @click="startExperiments">Start the Second Step</button>
 
     <!-- Experiment content -->
-    <div v-if="experimentsStarted">
+    <div>
       <h1>Experiment {{ currentExperiment }}</h1>
 
       <div v-if="counter < 5">
@@ -32,7 +30,6 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      experimentsStarted: false,
       totalExperiments: 10,
       currentExperiment: 1,
       boxWords: {
@@ -59,10 +56,6 @@ export default {
       } catch (error) {
         console.error('Error fetching words:', error);
       }
-    },
-    async startExperiments() {
-      this.experimentsStarted = true;
-      await this.fetchBoxWords();
     },
     boxClicked(word) {
       // Handle box click event

@@ -53,7 +53,7 @@ export default {
 
         if (this.counter === this.totalExperiments) {
           // Redirect to a new page after 10 experiments
-          this.$router.push('/experimentdue');
+          this.$router.push('/end-view');
         }
       } catch (error) {
         console.error('Error fetching words:', error);
@@ -122,12 +122,7 @@ export default {
           console.log('Exported answer data to CSV:', exportResponse.data);
 
           // Optionally, you can redirect to a new page after exporting to CSV
-          this.$router.push({
-            name: 'ExperimentDue',
-            params: {
-              participantData: JSON.stringify(this.participantData),
-            },
-          });
+          this.$router.push('/end-view');
         }
       } catch (error) {
         console.error('Error submitting answer data:', error);
@@ -177,7 +172,7 @@ h1 {
   cursor: pointer;
   display: inline-block;
   transition: transform 0.3s; /* Smooth transition for the transform property */
-  width: 48%; /* Set the width to 48% to fit two boxes in a row */
+  width: 48%;
   box-sizing: border-box; /* Include padding and border in the box's total width */
 }
 

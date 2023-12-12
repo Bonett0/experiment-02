@@ -53,8 +53,8 @@
     </p>
 
     <div class="button-container">
-      <button v-if="!flagCountdown" class="start-button" @click="startExperimentUno">Start Experiment One</button>
-<!--      <button v-if="!flagCountdown" class="start-button" @click="startExperimentDue">Start Experiment Two</button>-->
+      <button v-if="!flagCountdown && showStartButtonUno" class="start-button" @click="startExperimentUno">Start Experiment One</button>
+      <button v-else-if="!flagCountdown && showStartButtonDue" class="start-button" @click="startExperimentDue">Start Experiment Two</button>
     </div>
 
     <div v-if="flagCountdown" class="countdown">{{ countdown }}</div>
@@ -65,6 +65,8 @@
 export default {
   data() {
     return {
+      showStartButtonUno: false,
+      showStartButtonDue: false,
       participantData: {
         age: null,
         gender: null,
@@ -78,6 +80,11 @@ export default {
     };
   },
   methods: {
+    randomizeButtons() {
+      // Randomly decide which button to show
+      this.showStartButtonUno = Math.random() < 0.5; // 50% chance
+      this.showStartButtonDue = !this.showStartButtonUno;
+    },
     submitForm() {
       console.log('Participant Data:', this.participantData);
       this.statingExperiment = true;
@@ -125,6 +132,9 @@ export default {
       }, 1000);
     },
   },
+  mounted() {
+    this.randomizeButtons();
+  }
 };
 </script>
 
