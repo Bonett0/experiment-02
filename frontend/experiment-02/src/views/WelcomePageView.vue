@@ -103,6 +103,8 @@ button {
   cursor: pointer;
   border: none;
   border-radius: 5px;
+  display: block; /* Make the button a block-level element */
+  margin: 20px auto; /* Center the button horizontally by setting margin-left and margin-right to 'auto' */
 }
 
 button:hover {
