@@ -214,12 +214,12 @@ button:hover {
 }
 .button-container {
   display: flex;
-  justify-content: space-between; /* or space-around, space-evenly, etc. depending on your preference */
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .start-button {
-  /* Your button styles here */
-  margin-right: 10px; /* Adjust the margin as needed for spacing */
+  margin-right: 10px;
 }
 
 </style>

@@ -7,8 +7,10 @@
       <div class="box">{{ boxWords.options_kebab_case.original_word }}</div>
 
       <!-- Four clickable boxes side by side -->
-      <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box">
-        {{ word }}
+      <div class="boxes">
+        <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box">
+          {{ word }}
+        </div>
       </div>
       <div class="clear-float"></div>
 
@@ -17,8 +19,10 @@
       <div class="box">{{ boxWords.options_camel_case.original_word }}</div>
 
       <!-- Four clickable boxes side by side -->
-      <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box">
-        {{ word }}
+      <div class="boxes">
+        <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box">
+          {{ word }}
+        </div>
       </div>
       <div class="clear-float"></div>
 
@@ -172,6 +176,8 @@ h1 {
   background-color: transparent;
   border: 1px solid #e0e0e0;
   padding: 10px;
+  font-size: 20px;
+  width: calc(90%); /* Adjust the width to account for margin and border */
 }
 
 .clickable-box {
@@ -181,12 +187,21 @@ h1 {
   border: 1px solid #e0e0e0;
   padding: 10px;
   cursor: pointer;
-  display: inline-block;
+  display: flex;
+  width: calc(48% - 20px); /* Adjust the width to account for margin and border */
+  height: 100px;
+  box-sizing: border-box;
   transition: transform 0.3s; /* Smooth transition for the transform property */
-  width: 48%;
-  box-sizing: border-box; /* Include padding and border in the box's total width */
+  text-align: center;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
 }
 
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+}
 .correct-box {
   background-color: green; /* Set the background color for the correct answer */
 }

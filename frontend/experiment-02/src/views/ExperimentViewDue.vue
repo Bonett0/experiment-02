@@ -7,16 +7,20 @@
 
       <div v-if="counter < 5">
         <div class="box">{{ boxWords.options_camel_case.original_word }}</div>
-        <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box" :style="{ 'float': index % 2 === 0 ? 'left' : 'none' }">
-          {{ word }}
+        <div class="boxes">
+          <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box" :style="{ 'float': index % 2 === 0 ? 'left' : 'none' }">
+            {{ word }}
+          </div>
         </div>
         <div class="clear-float"></div>
       </div>
 
       <div v-else>
         <div class="box">{{ boxWords.options_kebab_case.original_word }}</div>
-        <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box" :style="{ 'float': index % 2 === 0 ? 'left' : 'none' }">
-          {{ word }}
+        <div class="boxes">
+          <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box" :style="{ 'float': index % 2 === 0 ? 'left' : 'none' }">
+            {{ word }}
+          </div>
         </div>
         <div class="clear-float"></div>
       </div>
@@ -172,6 +176,7 @@ h1 {
   background-color: transparent;
   border: 1px solid #e0e0e0;
   padding: 10px;
+  font-size: 20px;
 }
 
 .clickable-box {
@@ -181,10 +186,20 @@ h1 {
   border: 1px solid #e0e0e0;
   padding: 10px;
   cursor: pointer;
-  display: inline-block;
+  display: flex;
+  width: calc(48% - 20px); /* Adjust the width to account for margin and border */
+  height: 100px;
+  box-sizing: border-box;
   transition: transform 0.3s; /* Smooth transition for the transform property */
-  width: 48%; /* Set the width to 48% to fit two boxes in a row */
-  box-sizing: border-box; /* Include padding and border in the box's total width */
+  text-align: center;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .correct-box {
