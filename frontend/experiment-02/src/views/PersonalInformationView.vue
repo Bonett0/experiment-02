@@ -54,7 +54,7 @@
 
     <div class="button-container">
       <button v-if="!flagCountdown" class="start-button" @click="startExperimentUno">Start Experiment One</button>
-      <button v-if="!flagCountdown" class="start-button" @click="startExperimentDue">Start Experiment Two</button>
+<!--      <button v-if="!flagCountdown" class="start-button" @click="startExperimentDue">Start Experiment Two</button>-->
     </div>
 
     <div v-if="flagCountdown" class="countdown">{{ countdown }}</div>

@@ -1,33 +1,27 @@
 <template>
   <div>
-    <h1>Experiment {{ this.currentExperiment }}</h1>
+    <!-- Button to start the second step -->
+    <button v-if="!experimentsStarted" @click="startExperiments">Start the Second Step</button>
 
-    <div v-if="this.counter < 5">
+    <!-- Experiment content -->
+    <div v-if="experimentsStarted">
+      <h1>Experiment {{ currentExperiment }}</h1>
 
-      <!-- Box above the clickable boxes -->
-      <div class="box">{{ boxWords.options_camel_case.original_word }}</div>
-
-      <!-- Four clickable boxes side by side -->
-      <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box" :style="{ 'float': index % 2 === 0 ? 'left' : 'none' }">
-        {{ word }}
+      <div v-if="counter < 5">
+        <div class="box">{{ boxWords.options_camel_case.original_word }}</div>
+        <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box" :style="{ 'float': index % 2 === 0 ? 'left' : 'none' }">
+          {{ word }}
+        </div>
+        <div class="clear-float"></div>
       </div>
 
-      <!-- Clear the float to start a new row -->
-      <div class="clear-float"></div>
-
-    </div>
-    <div v-else>
-      <!-- Box above the clickable boxes -->
-      <div class="box">{{ boxWords.options_kebab_case.original_word }}</div>
-
-      <!-- Four clickable boxes side by side -->
-      <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box" :style="{ 'float': index % 2 === 0 ? 'left' : 'none' }">
-        {{ word }}
+      <div v-else>
+        <div class="box">{{ boxWords.options_kebab_case.original_word }}</div>
+        <div v-for="(word, index) in currentWords" :key="index" @click="boxClicked(word)" class="clickable-box" :style="{ 'float': index % 2 === 0 ? 'left' : 'none' }">
+          {{ word }}
+        </div>
+        <div class="clear-float"></div>
       </div>
-
-      <!-- Clear the float to start a new row -->
-      <div class="clear-float"></div>
-
     </div>
   </div>
 </template>
@@ -38,6 +32,7 @@ import axios from 'axios';
 export default {
   data() {
     return {
+      experimentsStarted: false,
       totalExperiments: 10,
       currentExperiment: 1,
       boxWords: {
@@ -64,6 +59,10 @@ export default {
       } catch (error) {
         console.error('Error fetching words:', error);
       }
+    },
+    async startExperiments() {
+      this.experimentsStarted = true;
+      await this.fetchBoxWords();
     },
     boxClicked(word) {
       // Handle box click event

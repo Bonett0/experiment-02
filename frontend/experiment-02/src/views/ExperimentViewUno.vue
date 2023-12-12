@@ -53,7 +53,7 @@ export default {
 
         if (this.counter === this.totalExperiments) {
           // Redirect to a new page after 10 experiments
-          this.$router.push('/end-view');
+          this.$router.push('/experimentdue');
         }
       } catch (error) {
         console.error('Error fetching words:', error);
@@ -108,7 +108,12 @@ export default {
           console.log('Exported answer data to CSV:', exportResponse.data);
 
           // Optionally, you can redirect to a new page after exporting to CSV
-          this.$router.push('/end-view');
+          this.$router.push({
+            name: 'ExperimentDue',
+            params: {
+              participantData: JSON.stringify(this.participantData),
+            },
+          });
         }
       } catch (error) {
         console.error('Error submitting answer data:', error);
