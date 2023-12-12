@@ -25,15 +25,6 @@
       </p>
     </div>
 
-    <div class="section">
-      <h2>Hypotheses:</h2>
-      <ul>
-        <li><strong>Null Hypothesis (H0):</strong> There is no significant difference in reading speed between identifiers
-          written in camelCase and kebab-case.</li>
-        <li><strong>Alternative Hypothesis (H1):</strong> Reading speed is significantly faster for identifiers written in
-          either camelCase or kebab-case.</li>
-      </ul>
-    </div>
 
     <div class="section">
       <h2>Instructions:</h2>

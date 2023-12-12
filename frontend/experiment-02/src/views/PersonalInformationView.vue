@@ -45,12 +45,23 @@
   </div>
   <div v-else class="experiment-container">
     <h1 class="experiment-title">Experiment</h1>
-    <p class="experiment-description">
-      This is the experiment page. The experiment will start when you press the start button. Once started, a timer will
-      begin, and you will be presented with five different buttons, each containing a word. Your task is to click on the
-      button that displays the same word as the one presented. The timer will measure the time it takes for you to
-      complete the task.
-    </p>
+    <div class="experiment-description">
+        In this experiment, you will be presented with 20 code snippets, featuring a mix of 10 camelCase and 10 kebab-case examples.
+      For instance, in camelCase:
+      <div class="snippet">
+        <span class="snippet-word">programming Language   ==> </span>
+        <span class="snippet-word">programmingLanguage</span>
+      </div>
+       and in kebab-case:
+      <div class="snippet">
+        <span class="snippet-word">programming Language   ==> </span>
+        <span class="snippet-word">programming-language</span>
+      </div>
+      Each snippet will have clickable words.
+      When you select a word, it will be highlighted in green if your choice is correct, or red if incorrect. In the case of a wrong answer, you must click the correct word to proceed. The experiment starts as soon as you press the "Start" button. Good luck and have fun testing your coding style knowledge!
+    </div>
+    <!-- Example snippet -->
+
 
     <div class="button-container">
       <button v-if="!flagCountdown && showStartButtonUno" class="start-button" @click="startExperimentUno">Start Experiment One</button>
@@ -222,4 +233,53 @@ button:hover {
   margin-right: 10px;
 }
 
+.experiment-title {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.experiment-description {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+.snippet {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin-top: 20px;
+}
+.snippet-word {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 5px;
+    padding: 2px 5px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+.snippet-word:hover {
+    background-color: #eaeaea;
+}
+.correct {
+    background-color: green;
+    color: white;
+}
+.incorrect {
+    background-color: red;
+    color: white;
+}
+.start-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.start-button:hover {
+    background-color: #45a049;
+}
 </style>
