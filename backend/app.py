@@ -114,10 +114,10 @@ def submit_and_export():
             user_id = word_generator.generate_random_user_id()
             # Write experiment information and answer data to CSV file
             for idx, answer_data in enumerate(answer_data_list, start=1):
-                experiment_info = f"Experiment {exp_number}"
+                
                 writer.writerow({
                     'User_ID': user_id,
-                    'Experiment': experiment_info,
+                    'Experiment': answer_data.get('ex', ''),
                     'Age': answer_data.get('age', ''),
                     'Gender': answer_data.get('gender', ''),
                     'Programming Experience': answer_data.get('programming_experience', ''),
