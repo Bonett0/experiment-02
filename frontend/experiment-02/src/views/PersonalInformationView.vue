@@ -174,14 +174,12 @@ button:hover {
   font-size: 60px;
   color: #333;
   margin-bottom: 10px;
-  color: white;
 }
 
 .experiment-description {
   font-size: 25px;
   color: #555;
   margin-bottom: 20px;
-  color : white;
 }
 
 .start-button {

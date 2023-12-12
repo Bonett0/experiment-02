@@ -83,7 +83,6 @@ export default {
 <style scoped>
 .welcome-heading {
   text-align: center;
-  color: white;
 }
 .welcome-container {
   max-width: 800px;
