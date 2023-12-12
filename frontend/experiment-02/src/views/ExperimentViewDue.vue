@@ -76,6 +76,21 @@ export default {
         isCorrect = word === this.boxWords.options_kebab_case.correct_kebab_case;
       }
 
+      const boxElement = event.target;
+
+      if (isCorrect) {
+        // Add the correct-box class to the clicked box
+        boxElement.classList.add('correct-box');
+      } else {
+        // Add the incorrect-box class to the clicked box
+        boxElement.classList.add('incorrect-box');
+      }
+
+      // Remove the correct-box or incorrect-box class after a brief delay (e.g., 1000 milliseconds)
+      setTimeout(() => {
+        boxElement.classList.remove('correct-box', 'incorrect-box');
+      }, 300);
+
       this.currentCase = this.counter < 5 ? 'camelCase' : 'kebabCase';
 
       let answerData = {
@@ -166,7 +181,14 @@ h1 {
   transition: transform 0.3s; /* Smooth transition for the transform property */
   width: 48%; /* Set the width to 48% to fit two boxes in a row */
   box-sizing: border-box; /* Include padding and border in the box's total width */
+}
 
+.correct-box {
+  background-color: green; /* Set the background color for the correct answer */
+}
+
+.incorrect-box {
+  background-color: red; /* Set the background color for the incorrect answer */
 }
 
 .clickable-box:hover {
