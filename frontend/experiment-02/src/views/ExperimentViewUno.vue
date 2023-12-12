@@ -41,6 +41,7 @@ export default {
       currentCase: 'kebabCase', // Initial case
       counter: 0,
       startTime: null,
+      attempt:0,
     };
   },
   methods: {
@@ -64,7 +65,7 @@ export default {
       const endTime = performance.now();
       const timeTaken = endTime - this.startTime;
       let isCorrect = "";
-
+      this.currentCase = this.counter < 5 ? 'kebabCase' :'camelCase';
       if (this.currentCase === "camelCase") {
         isCorrect = word === this.boxWords.options_camel_case.correct_camel_case;
       } else {
@@ -86,28 +87,38 @@ export default {
         boxElement.classList.remove('correct-box', 'incorrect-box');
       }, 300);
 
-      this.currentCase = this.counter < 5 ? 'kebabCase' :'camelCase';
-      let answerData = {
-        ex:1,
-        age: this.participantData.age,
-        gender: this.participantData.gender,
-        programming_experience: this.participantData.programmingExperience,
-        camel_case_familiarity: this.participantData.familiarityCamelCase,
-        kebab_case_familiarity: this.participantData.familiarityKebabCase,
-        type: this.currentCase === "camelCase" ? "camelCase" : "kebabCase",
-        word: this.currentCase === "camelCase" ? this.boxWords.options_camel_case.original_word : this.boxWords.options_kebab_case.original_word,
-        clickedWord: word,
-        isCorrect,
-        timeTaken
-      };
+
+      if(isCorrect) {
+        let bool = true;
+        if (this.attempt !== 0){
+          bool = false;
+        }
+        let answerData = {
+          ex:1,
+          age: this.participantData.age,
+          gender: this.participantData.gender,
+          programming_experience: this.participantData.programmingExperience,
+          camel_case_familiarity: this.participantData.familiarityCamelCase,
+          kebab_case_familiarity: this.participantData.familiarityKebabCase,
+          type: this.currentCase === "camelCase" ? "camelCase" : "kebabCase",
+          word: this.currentCase === "camelCase" ? this.boxWords.options_camel_case.original_word : this.boxWords.options_kebab_case.original_word,
+          clickedWord: word,
+          bool,
+          timeTaken
+        };
 
 
 
-      this.submitAnswerData(answerData);
-      this.counter = this.counter + 1;
-      this.currentExperiment = this.currentExperiment + 1;
-      this.fetchBoxWords();
-      console.log("currentCase", this.currentCase);
+        this.submitAnswerData(answerData);
+        this.counter = this.counter + 1;
+        this.currentExperiment = this.currentExperiment + 1;
+        this.fetchBoxWords();
+        console.log("currentCase", this.currentCase);
+        this.attempt = 0;
+      } else {
+        isCorrect = "";
+        this.attempt = this.attempt + 1;
+      }
     },
     async submitAnswerData(answerData) {
       try {

@@ -13,7 +13,7 @@ used_words = set()  # Keep track of used words
 @app.route('/words', methods=['GET'])
 def get_words():
     words_examples = [
-        'web App', 'mobile App', 'database', 'user Interface',
+        'web App', 'mobile App', 'user Interface',
         'code Example', 'programming Language', 'software Development', 'application Framework',
         'algorithm Design', 'functionality Test', 'variable Declaration', 'class Definition',
         'machine Learning', 'data Science', 'neural Network', 'visualization Technique',
@@ -99,7 +99,7 @@ def submit_and_export():
         # Define CSV header
         csv_header = [
             'User_ID','Experiment', 'Age', 'Gender', 'Programming Experience',
-            'camelCase Familiarity', 'kebab-case Familiarity',
+            'camelCase Familiarity', 'kebab-case Familiarity', "Type",
             'Word', 'Clicked Word', 'IsCorrect', 'TimeTaken'
         ]
 
@@ -123,9 +123,10 @@ def submit_and_export():
                     'Programming Experience': answer_data.get('programming_experience', ''),
                     'camelCase Familiarity': answer_data.get('camel_case_familiarity', ''),
                     'kebab-case Familiarity': answer_data.get('kebab_case_familiarity', ''),
+                    'Type' : answer_data.get('type', ''),
                     'Word': answer_data.get('word', ''),
                     'Clicked Word': answer_data.get('clickedWord', ''),
-                    'IsCorrect': answer_data.get('isCorrect', ''),
+                    'IsCorrect': answer_data.get('bool', ''),
                     'TimeTaken': answer_data.get('timeTaken', ''),
                 })
             exp_number += 1  # Increment exp_number 
