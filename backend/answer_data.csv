@@ -1,0 +1,52 @@
+User_ID,Experiment,Age,Gender,Programming Experience,camelCase Familiarity,kebab-case Familiarity,Type,Word,Clicked Word,IsCorrect,TimeTaken
+3a090245-a7c4-4e65-b58b-9b14eee5b4e2,2,26,male,More than 3,yes,yes,camelCase,spiritual Enlightenment,spiritualEnlightenment,True,7244.199999999255
+3a090245-a7c4-4e65-b58b-9b14eee5b4e2,2,26,male,More than 3,yes,yes,camelCase,software Development,softwareDevelopment,True,5313.300000000745
+3a090245-a7c4-4e65-b58b-9b14eee5b4e2,2,26,male,More than 3,yes,yes,camelCase,software Quality Assurance,softwareQualityAssurance,False,7791.099999997765
+3a090245-a7c4-4e65-b58b-9b14eee5b4e2,2,26,male,More than 3,yes,yes,camelCase,historical Landmark,historicalLandmark,True,6796.599999997765
+3a090245-a7c4-4e65-b58b-9b14eee5b4e2,2,26,male,More than 3,yes,yes,camelCase,philosophical Concept,philosophicalConcept,True,5697.5
+3a090245-a7c4-4e65-b58b-9b14eee5b4e2,2,26,male,More than 3,yes,yes,kebabCase,historical Fiction Novel,historical-fiction-novel,True,6224.70000000298
+3a090245-a7c4-4e65-b58b-9b14eee5b4e2,2,26,male,More than 3,yes,yes,kebabCase,timeless Fashion Trend,timeless-fashion-trend,True,7331
+3a090245-a7c4-4e65-b58b-9b14eee5b4e2,2,26,male,More than 3,yes,yes,kebabCase,user Interface,user-interface,True,5549.70000000298
+3a090245-a7c4-4e65-b58b-9b14eee5b4e2,2,26,male,More than 3,yes,yes,kebabCase,visualization Technique,visualization-technique,True,7255.5
+3a090245-a7c4-4e65-b58b-9b14eee5b4e2,2,26,male,More than 3,yes,yes,kebabCase,artistic Expression,artistic-expression,True,9379
+08232085-07bc-4fb1-86ae-dd613d6fe68c,1,38,male,More than 3,yes,yes,kebabCase,innovative Technology,innovative-technology,True,5886
+08232085-07bc-4fb1-86ae-dd613d6fe68c,1,38,male,More than 3,yes,yes,kebabCase,ocean Exploration,ocean-exploration,True,4056.199999999255
+08232085-07bc-4fb1-86ae-dd613d6fe68c,1,38,male,More than 3,yes,yes,kebabCase,application Framework,application-framework,True,2907.199999999255
+08232085-07bc-4fb1-86ae-dd613d6fe68c,1,38,male,More than 3,yes,yes,kebabCase,mindful Living,mindful-living,True,4258.199999999255
+08232085-07bc-4fb1-86ae-dd613d6fe68c,1,38,male,More than 3,yes,yes,kebabCase,humanitarian Effort,humanitarian-effort,True,2998
+08232085-07bc-4fb1-86ae-dd613d6fe68c,1,38,male,More than 3,yes,yes,camelCase,continuous Integration,continuousIntegration,True,2282.5
+08232085-07bc-4fb1-86ae-dd613d6fe68c,1,38,male,More than 3,yes,yes,camelCase,modern Art Movement,modernArtMovement,True,5438.89999999851
+08232085-07bc-4fb1-86ae-dd613d6fe68c,1,38,male,More than 3,yes,yes,camelCase,wildlife Conservation,wildlifeConservation,True,6223.10000000149
+08232085-07bc-4fb1-86ae-dd613d6fe68c,1,38,male,More than 3,yes,yes,camelCase,virtual Reality Application,virtualRealityApplication,True,4923.099999997765
+08232085-07bc-4fb1-86ae-dd613d6fe68c,1,38,male,More than 3,yes,yes,camelCase,courageous Humanitarian Effort,courageousHumanitarianEffort,True,5476.900000002235
+ca1d4652-6617-489b-81d8-0dd8086bb9bf,1,21,male,Less than 3,yes,yes,kebabCase,vibrant Cultural Festival,vibrant-cultural-festival,True,10372.199999999255
+ca1d4652-6617-489b-81d8-0dd8086bb9bf,1,21,male,Less than 3,yes,yes,kebabCase,frontend Framework,frontend-framework,True,4923.800000000745
+ca1d4652-6617-489b-81d8-0dd8086bb9bf,1,21,male,Less than 3,yes,yes,kebabCase,cloud Infrastructure Management,cloud-infrastructure-management,True,5207.5
+ca1d4652-6617-489b-81d8-0dd8086bb9bf,1,21,male,Less than 3,yes,yes,kebabCase,spectacular Natural Beauty,spectacular-natural-beauty,True,3233
+ca1d4652-6617-489b-81d8-0dd8086bb9bf,1,21,male,Less than 3,yes,yes,kebabCase,ancient Wisdom,ancient-wisdom,True,1966.699999999255
+ca1d4652-6617-489b-81d8-0dd8086bb9bf,1,21,male,Less than 3,yes,yes,camelCase,open Source Project,openSourceProject,True,7656.10000000149
+ca1d4652-6617-489b-81d8-0dd8086bb9bf,1,21,male,Less than 3,yes,yes,camelCase,astronomical Phenomenon,astronomicalPhenomenon,False,7670.199999999255
+ca1d4652-6617-489b-81d8-0dd8086bb9bf,1,21,male,Less than 3,yes,yes,camelCase,intrepid Explorer,intrepidExplorer,True,3794.60000000149
+ca1d4652-6617-489b-81d8-0dd8086bb9bf,1,21,male,Less than 3,yes,yes,camelCase,data Privacy Policy,dataPrivacyPolicy,True,4548
+ca1d4652-6617-489b-81d8-0dd8086bb9bf,1,21,male,Less than 3,yes,yes,camelCase,experimental Music Genre,experimentalMusicGenre,False,4863.5
+dda412df-cf84-4619-97f2-6f998cdb2108,2,24,male,More than 3,yes,yes,camelCase,data Visualization Tool,dataVisualizationTool,True,5515.89999999851
+dda412df-cf84-4619-97f2-6f998cdb2108,2,24,male,More than 3,yes,yes,camelCase,backend Development,backendDevelopment,False,3847
+dda412df-cf84-4619-97f2-6f998cdb2108,2,24,male,More than 3,yes,yes,camelCase,computer Vision System,computerVisionSystem,True,6017
+dda412df-cf84-4619-97f2-6f998cdb2108,2,24,male,More than 3,yes,yes,camelCase,cultural Heritage,culturalHeritage,True,2864.199999999255
+dda412df-cf84-4619-97f2-6f998cdb2108,2,24,male,More than 3,yes,yes,camelCase,encryption Algorithm,encryptionAlgorithm,True,74.5
+dda412df-cf84-4619-97f2-6f998cdb2108,2,24,male,More than 3,yes,yes,kebabCase,neural Network,neural-network,True,3752.599999997765
+dda412df-cf84-4619-97f2-6f998cdb2108,2,24,male,More than 3,yes,yes,kebabCase,sports Achievement,sports-achievement,True,3187.699999999255
+dda412df-cf84-4619-97f2-6f998cdb2108,2,24,male,More than 3,yes,yes,kebabCase,software Framework,software-framework,False,4901
+dda412df-cf84-4619-97f2-6f998cdb2108,2,24,male,More than 3,yes,yes,kebabCase,ancient Civilization,ancient-civilization,False,2931.5
+dda412df-cf84-4619-97f2-6f998cdb2108,2,24,male,More than 3,yes,yes,kebabCase,captivating Performance Art,captivating-performance-art,True,2763.2999999970198
+e103125d-ac46-449c-a686-ee03cca16544,1,21,male,More than 3,yes,yes,kebabCase,culinary Adventure,culinary-adventure,True,2285
+e103125d-ac46-449c-a686-ee03cca16544,1,21,male,More than 3,yes,yes,kebabCase,timeless Fashion Trend,timeless-fashion-trend,True,3435.89999999851
+e103125d-ac46-449c-a686-ee03cca16544,1,21,male,More than 3,yes,yes,kebabCase,spectacular Natural Beauty,spectacular-natural-beauty,False,4024.3000000044703
+e103125d-ac46-449c-a686-ee03cca16544,1,21,male,More than 3,yes,yes,kebabCase,responsive Mobile Design,responsive-mobile-design,True,2450.5
+e103125d-ac46-449c-a686-ee03cca16544,1,21,male,More than 3,yes,yes,kebabCase,software as a Service,software-as-a-service,True,2066.10000000149
+e103125d-ac46-449c-a686-ee03cca16544,1,21,male,More than 3,yes,yes,camelCase,application Framework,applicationFramework,True,2900.0999999940395
+e103125d-ac46-449c-a686-ee03cca16544,1,21,male,More than 3,yes,yes,camelCase,global Environmental Issue,globalEnvironmentalIssue,True,2398.1999999955297
+e103125d-ac46-449c-a686-ee03cca16544,1,21,male,More than 3,yes,yes,camelCase,architectural Marvel,architecturalMarvel,TrueTHANKS FOR YOUR TIME,2081.60000000149
+e103125d-ac46-449c-a686-ee03cca16544,1,21,male,More than 3,yes,yes,camelCase,artificial Intelligence,artificialIntelligence,False,3890
+e103125d-ac46-449c-a686-ee03cca16544,1,21,male,More than 3,yes,yes,camelCase,ethical Business Practices,ethicalBusinessPractices,True,2825.3000000044703
+,,,,,,,,,,
