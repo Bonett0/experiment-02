@@ -161,11 +161,11 @@ Check off the characteristics of your experimental design:\\
 
 \textbf{Between vs. Within} (check one): [for human subject studies]:\\
 \noindent
-\begin{minipage}{0.4\textwidth}
+\begin{minipage}{0.5\textwidth}
     \fbox{\Square\ \textbf{Between Group Design} (independent measures)}
 \end{minipage}%
-\begin{minipage}{0.4\textwidth}
-    \fbox{\bm{\XBox{}} \textbf{Within Subject Design} (repeated measures)}A
+\begin{minipage}{0.47\textwidth}
+    \fbox{\bm{\XBox{}} \textbf{Within Subject Design} (repeated measures)}
 \end{minipage}%
 \begin{minipage}{0.0\textwidth}
     \fbox{\Square\ \textbf{Other}}
@@ -173,8 +173,33 @@ Check off the characteristics of your experimental design:\\
 Explain, (1) in text using terminology from the book and lectures and (2) with a figure (similar to those used in Chapter 3 of the Field \& Hole book), what kind of experiment you did.
 
 \subsection{Participants}
-Describe who will take / took part in your experiment. Provide descriptive/summative statistics of their gender, age, professional backgrounds, and any other characteristics that may be relevant to your experiment. Also explain how you will recruit / recruited them (volunteers recruited through email, classmates who were asked to do this, etc) and how you will allocate / allocated them into the different study conditions, i.e., control group vs experimental group(s).
+Describe who will take / took part in your experiment. Provide descriptive/summative statistics of their gender, age, professional backgrounds, and any other characteristics that may be relevant to your experiment. Also explain how you will recruit / recruited them (volunteers recruited through email, classmates who were asked to do this, etc) and how you will allocate / allocated them into the different study conditions, i.e., control group vs experimental group(s).\textbf{TODO: THE GRAPHICAL PART AND INFORMATIONS ABOUT THE DEMOGRAPHICS}\\
 
+The participants in this study encompass a diverse group of individuals, including students, professionals from various fields, and individuals with varying degrees of familiarity with informatics. The recruitment process involved approaching people in person, introducing the study, and inviting them to participate voluntarily.
+
+\subsubsection*{Inclusion Criteria}
+
+Participants were eligible to take part in the study if they:
+\begin{itemize}
+  \item Expressed willingness to engage in a simple test related to coding conventions.
+  \item Represented a broad spectrum of backgrounds, including but not limited to students, non-technical professionals, and individuals with no specific informatics expertise.
+\end{itemize}
+
+\subsubsection*{Recruitment Process}
+
+Recruitment was conducted in person, with us (researchers) approaching potential participants in various settings. These settings included educational institutions, public spaces, and community gatherings. The recruitment team provided a brief overview of the study, emphasizing its simplicity and the lack of specific informatics knowledge required.
+
+\subsubsection*{Informed Consent}
+
+Participants were informed about the nature of the study, its objectives, and the procedures involved. They were assured that participation was entirely voluntary and that they could withdraw from the study at any point without consequences. Informed consent was obtained from each participant before engaging in any experimental tasks.
+
+\subsubsection*{Diversity Considerations}
+
+Efforts were made to ensure diversity in the participant pool to capture a broad range of perspectives and experiences. This diversity contributes to the generalizability of findings and allows for a more comprehensive understanding of how individuals with different backgrounds approach coding conventions.
+
+\subsubsection*{Confidentiality and Anonymity}
+
+All collected data were treated with utmost confidentiality. Participants were assigned unique identifiers to protect their anonymity, and personal information was securely stored in compliance with data protection regulations.
 
 \subsection{Apparatus and Materials}
 Describe in sufficient detail any relevant “props” that you used in your experiment. This could be the computer
@@ -183,9 +208,93 @@ time (A stopwatch? A background process on the computer that got automatically t
 detail (e.g., think whether details like the size of the table the laptop was placed on, or the hard disk size, might
 have affected your results or not)
 
+\subsubsection*{Hardware}
+The experiment was conducted using a \texttt{Dell Inc Precision 5550} laptop, featuring the following hardware specifications:
+\begin{itemize}
+  \item \textbf{Processor:} \texttt{Intel® Core™ i7-10850H × 12}
+  \item \textbf{RAM:} (Specify the RAM capacity and type)
+  \item \textbf{Storage:} (Specify the storage type and capacity)
+  \item \textbf{Graphics:} (Specify the graphics card)
+  \item \textbf{Display:} (Specify the display specifications)
+  \item \textbf{Input Devices:} (Specify any additional input devices used, e.g., mouse, keyboard)
+\end{itemize}
+
+\subsubsection*{Software}
+The software environment for the experiment was configured as follows:
+\begin{itemize}
+  \item \textbf{Operating System:} \texttt{Ubuntu 23.04} (64-bit)
+  \item \textbf{Kernel Version:} \texttt{Linux 6.2.0-36-generic}
+  \item \textbf{Firmware Version:} \texttt{1.24.1}
+  \item \textbf{Programming Environment:} \texttt{VisualStudio Code, Intellij IDEA}
+\end{itemize}
+
+\subsubsection*{Experimental Setup}
+Participants engaged with the experiment using the provided web application hosted on a local server. The application was accessed through a standard web browser (Google Chrome). The interaction with the experiment was carried out on the \texttt{Dell Inc.Precision 5550} laptop, ensuring a consistent hardware and software environment for all participants.
+
+\subsubsection*{Data Collection Tools}
+Data related to participant responses and interactions were collected using the Flask web framework on the server side. Additionally, client-side interactions were captured through the Vue.js framework in the web application. No personally identifiable information was collected, ensuring participant privacy and data confidentiality.
+
+\subsubsection*{Randomization and Counterbalancing}
+To minimize potential order effects, the order of presentation for experimental stimuli was randomized for each participant. This randomization was implemented using a custom script within the experimental software.
+
+\subsubsection*{Control Measures}
+The experiment was conducted in a controlled environment with minimal external distractions. Participants were provided with standardized instructions to ensure consistency in task execution. The web application interface was designed to be uniform across all sessions.
+
 
 \subsection{Procedure}
-Describe how you used your props and/or the participants to perform your actual experiment, i.e., how you actually carried out a single experimental run. What was done to the participants? What did they have to do? How long did each session take (unless this is an actual dependent variable)? If you did not have participants, explain, e.g., what software was started by whom in what order.
+Describe how you used your props and/or the participants to perform your actual experiment, i.e., how you actually carried out a single experimental run. What was done to the participants? What did they have to do? How long did each session take (unless this is an actual dependent variable)? If you did not have participants, explain, e.g., what software was started by whom in what order.\\\\
+The experiment was conducted in a controlled environment following a standardized procedure. Participants were recruited through in-person interactions, where individuals from a diverse background, including students and those with no prior experience in informatics, were invited to participate in a simple coding style test.
+
+\subsection*{Recruitment}
+
+\begin{itemize}
+  \item Participants were approached in person and asked if they would be interested in participating in a coding style test.
+  \item The recruitment process involved individuals from various demographics, including students, professionals, and those with diverse interests.
+  \item Participants were informed that the test aimed to assess their understanding of coding style conventions in different programming paradigms.
+  \item Informed consent was obtained from each participant, emphasizing the voluntary nature of their participation and the confidentiality of their responses.
+\end{itemize}
+
+\subsection*{Personal Information Collection}
+
+\begin{itemize}
+  \item Participants who expressed interest were directed to a Personal Information View in the web application.
+  \item Demographic information, including age, gender, programming experience, and familiarity with coding styles (camelCase and kebab-case), was collected through a structured form.
+  \item The personal information collection process was designed to be brief and straightforward, ensuring a seamless transition to the experimental phase.
+  \item After providing personal information, participants were guided through the experiment's instructions and purpose.
+\end{itemize}
+
+\subsection*{Experiment Instructions}
+
+\begin{itemize}
+  \item Participants were introduced to the coding style test, which consisted of 10 code snippets featuring both camelCase and kebab-case examples.
+  \item Clear instructions were provided, explaining that each snippet contained clickable words, and participants were required to select the correct word based on coding style conventions.
+  \item The experiment emphasized that the task was designed to assess participants' familiarity with coding styles rather than their coding proficiency.
+\end{itemize}
+
+\subsection*{Experiment Sessions}
+
+\begin{itemize}
+  \item The experiment was divided into two sessions, each featuring 5 code snippets. The order of camelCase and kebab-case snippets was randomized to mitigate order effects.
+  \item Participants initiated the experiment by clicking the "Start" button, followed by a brief countdown to ensure readiness.
+  \item During each session, participants clicked on words within code snippets, and the web application provided immediate feedback on the correctness of their choices.
+  \item Incorrect selections required participants to click on the correct word before proceeding, reinforcing learning through corrective feedback.
+\end{itemize}
+
+\subsection*{Data Collection}
+
+\begin{itemize}
+  \item Throughout the experiment, participant interactions and responses were recorded, including selected words, response times, and correctness.
+  \item After completing the coding style test, participants were directed to a debriefing page, thanking them for their participation and providing information about the study's objectives.
+\end{itemize}
+
+\subsection*{Export and Closure}
+
+\begin{itemize}
+  \item Participants were informed that their anonymized data would be used for research purposes only.
+  \item The experiment concluded with the opportunity for participants to ask questions or seek additional information.
+\end{itemize}
+
+The entire procedure aimed to create a standardized and controlled environment for the coding style test while ensuring participant comfort and understanding.
 
 
 \section{Results}
