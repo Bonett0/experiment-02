@@ -43,10 +43,8 @@ This report details the experimental design, methodology, and results of the stu
 
 
 
-\begin{tcolorbox}[title=Hypotheses:, colback=white, colframe=black, arc=0pt, outer arc=0pt]
-    Write down your (falsifiable!) hypotheses here. Each hypothesis must include independent and your dependent variables. You must write down your hypotheses before you do your experiment!
-
-
+\begin{tcolorbox}[title=Hypothesis]
+    Our hypothesis for this experiment is that the familiarity of participants with coding styles, specifically "camelCase" and "kebab-case," will significantly impact their accuracy in identifying and selecting the correct words in code snippets. We anticipate that participants familiar with both coding styles will demonstrate higher accuracy compared to those less familiar.
 \end{tcolorbox}
 
 
@@ -140,11 +138,17 @@ Check off the characteristics of your experimental design:\\
     \fbox{\Square{} \textbf{Observational Study}}
 \end{minipage}%
 \begin{minipage}{0.4\textwidth}
-    \fbox{\Square{} \textbf{Quasi-Experiment}}
+    \fbox{\bm{\XBox{}} \textbf{Quasi-Experiment}}
 \end{minipage}%
 \begin{minipage}{0.2\textwidth}
-    \fbox{\bm{\XBox{}} \textbf{Experiment}}
+    \fbox{\Square{} \textbf{Experiment}}
 \end{minipage}\\\\
+The study follows a quasi-experimental design due to practical limitations in manipulating independent variables. Unlike a true experiment with complete control, this design prioritizes real-world conditions.
+
+The experimenter controls the timing of dependent variable measurements but lacks control over participant assignment to different conditions. This compromise ensures a balance between external validity and limitations inherent in coding style familiarity research.
+
+In summary, the quasi-experimental design allows for a nuanced exploration of coding style knowledge across diverse participants, striking a balance between controlled experiments and real-world complexities.
+\\
 
 
 \textbf{Number of Factors} (check one):\\
@@ -158,19 +162,12 @@ Check off the characteristics of your experimental design:\\
 \begin{minipage}{0.0\textwidth}
     \fbox{\Square\ \textbf{Other}}
 \end{minipage}\\\\
-
-\textbf{Between vs. Within} (check one): [for human subject studies]:\\
-\noindent
-\begin{minipage}{0.5\textwidth}
-    \fbox{\Square\ \textbf{Between Group Design} (independent measures)}
-\end{minipage}%
-\begin{minipage}{0.47\textwidth}
-    \fbox{\bm{\XBox{}} \textbf{Within Subject Design} (repeated measures)}
-\end{minipage}%
-\begin{minipage}{0.0\textwidth}
-    \fbox{\Square\ \textbf{Other}}
-\end{minipage}\\\\
-Explain, (1) in text using terminology from the book and lectures and (2) with a figure (similar to those used in Chapter 3 of the Field \& Hole book), what kind of experiment you did.
+This experiment employs a Multi-factor Design, encompassing various independent variables to explore participants' responses to code snippets featuring both camelCase and kebab-case formats. The factors under examination include the coding style (randomly assigned as camelCase or kebab-case) and participants' familiarity with each style. These independent variables aim to uncover potential influences on participants' word recognition and selection. The study captures dependent variables, such as participants' responses (correct or incorrect) and the time taken for their selections. The randomized assignment of coding styles enhances the exploration of the interplay between coding style, familiarity, and participant responses within a Multi-factor Design framework:\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{graphExperiment2.png}
+    \caption{Multi-factor design}
+\end{figure}
 
 \subsection{Participants}
 Describe who will take / took part in your experiment. Provide descriptive/summative statistics of their gender, age, professional backgrounds, and any other characteristics that may be relevant to your experiment. Also explain how you will recruit / recruited them (volunteers recruited through email, classmates who were asked to do this, etc) and how you will allocate / allocated them into the different study conditions, i.e., control group vs experimental group(s).\textbf{TODO: THE GRAPHICAL PART AND INFORMATIONS ABOUT THE DEMOGRAPHICS}\\
@@ -227,6 +224,13 @@ The software environment for the experiment was configured as follows:
   \item \textbf{Firmware Version:} \texttt{1.24.1}
   \item \textbf{Programming Environment:} \texttt{VisualStudio Code, Intellij IDEA}
 \end{itemize}
+
+\subsubsection*{Measurement Tool}
+    \begin{itemize}
+      \item Utilized the \texttt{performance.now()} function for accurate measurement of execution time.
+      \item Employed \texttt{Date.now()} for capturing program execution time.
+      \item Used a digital stopwatch to cross-verify the time taken by the program.
+    \end{itemize}
 
 \subsubsection*{Experimental Setup}
 Participants engaged with the experiment using the provided web application hosted on a local server. The application was accessed through a standard web browser (Google Chrome). The interaction with the experiment was carried out on the \texttt{Dell Inc.Precision 5550} laptop, ensuring a consistent hardware and software environment for all participants.
@@ -346,7 +350,7 @@ If you only collected a small amount of data, put it in this Appendix right here
 If you collected data in forms that are better kept in separate files, then zip up those files, and submit them as a "reproduction package" supporting this report.
 
 
-\subsection*{{Github repo: (\url{https://github.com/Bonett0/experiment-01})}}
+\subsection*{{Github repo: (\url{https://github.com/Bonett0/experiment-02})}}
 
 
 
