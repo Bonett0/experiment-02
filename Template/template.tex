@@ -33,7 +33,13 @@ Short (120-130 words) summary of your entire report. Give the reader a quick ide
 
 
 \section{Introduction}
-Introduce the topic of investigation to the reader and motivate why you did the experiment. Note that in our case, writing “because I was told to by the course instructors” is not a valid answer. Please assume that you are trying to answer a certain relevant question and motivate its relevance. (In a “real” study report, you would need to also discuss any relevant prior research results here. Given our setting, however, we skip any “related work” consideration.) Your final paragraph of the introduction should outline your proposed experiment.
+In the realm of natural language reading, studies have demonstrated that the use of explicit separators between words significantly enhances reading speed—individuals tend to read 20\% faster when such separators are employed. Whether this finding extends to the realm of source code, specifically in the context of composed identifiers, remains an intriguing question. Composed identifiers, featuring more than one word, are commonly used in programming languages, and their readability can impact code comprehension and maintenance.
+
+The focus of this experiment is to investigate whether the observed speedup in reading with explicit separators holds true for composed identifiers in source code. We specifically aim to compare two common styles of composing identifiers: camelCase and kebab-case. CamelCase involves concatenating words together, capitalizing the beginning of each new word (e.g., moveSouth), while kebab-case uses hyphens as separators between words (e.g., move-south).
+
+The motivation behind this study is to shed light on whether the choice of identifier style influences reading efficiency in the context of programming. To achieve this, a controlled experiment has been designed to measure participants' reading speed and accuracy when identifying composed identifiers in both camelCase and kebab-case styles.
+
+This report details the experimental design, methodology, and results of the study, aiming to contribute valuable insights to the ongoing discussion on coding conventions and their impact on code readability. Through a combination of careful experimentation and statistical analysis, we aim to answer the question: Does the choice of identifier style affect the speed and accuracy of code reading?
 
 
 
@@ -46,63 +52,84 @@ Introduce the topic of investigation to the reader and motivate why you did the 
 
 
 \section{Method}
-In the following subsections, describe everything that a reader would need to replicate your experiment in all important details.
+The method involves conducting a series of experiments where participants interact with code snippets containing words in camelCase or kebab-case. Demographic information is collected before starting the experiments. The participant's choices, correctness, and timing are recorded. The experiment progresses through a set number of trials, and data is submitted for each trial. After completing all experiments, the data is exported to a CSV file. The timing and correctness of responses are key variables of interest.
 \subsection{Variables}
-Explicitly identify the independent variable(s) (i.e., what you as the experimenter manipulate):
 
-\begin{table}[h!]
-\centering
-\begin{tabular}{|l|l|}
-\hline
-\rowcolor{black}
-\color{white}Independent variable & \color{white}Levels \\
-\hline
-TODO &  \\
-\hline
-\end{tabular}
-\end{table}
+\begin{tcolorbox}[title=Independent Variables]
 
+\textbf{Experiment Type (\texttt{currentCase}):}
+\begin{itemize}
+    \item \textbf{Description:} This variable represents the type of experiment being conducted, whether it's focused on camelCase or kebab-case.
+    \item \textbf{Possible Values:} 'camelCase' or 'kebabCase'
+\end{itemize}
 
+\textbf{Participant Demographics (\texttt{participantData}):}
+\begin{itemize}
+    \item \textbf{Description:} Demographic information collected from the participant, including age, gender, programming experience, familiarity with camelCase, and familiarity with kebab-case.
+    \item \textbf{Possible Values:} Various based on participant input.
+\end{itemize}
 
+\end{tcolorbox}
 
+\begin{tcolorbox}[title=Dependent Variables]
 
-Explicitly identify the dependent variable(s) (i.e., what you measure):\\
+\textbf{Word Selection (\texttt{boxWords}):}
+\begin{itemize}
+    \item \textbf{Description:} The set of words provided to the participant in each experiment, including the original word and the options in camelCase and kebab-case.
+    \item \textbf{Possible Values:} Object containing word information.
+\end{itemize}
 
-\begin{table}[h!]
-\centering
-\begin{tabular}{|l|l|}
-\hline
-\rowcolor{black}
-\color{white}Dependent Variable & \color{white}Measurement Scale \\
-\hline
-TODO &  \\
-\hline
-\end{tabular}
-\end{table}
-Explicitly identify any important control variable(s) (i.e., what you keep constant): Note that you do not need to spell out items that you do not expect to make a significant difference! E.g., do not list room temperature unless you believe that minor differences have an impact! Or the other way around: only list variables here that you think are important to keep at a certain level.
-\begin{table}[h!]
-\centering
-\begin{tabular}{|l|l|}
-\hline
-\rowcolor{black}
-\color{white}Control Variable & \color{white}Fixed Value \\
-\hline
-TODO &  \\
-\hline
-\end{tabular}
-\end{table}
-Explicitly identify the blocking variable(s) (i.e., potential sources of variability you measure and will use to partition the experimental units into blocks, but that are not part of the hypothesis):
-\begin{table}[h!]
-\centering
-\begin{tabular}{|l|l|}
-\hline
-\rowcolor{black}
-\color{white}Blocking Variable & \color{white}Level \\
-\hline
-TODO &  \\
-\hline
-\end{tabular}
-\end{table}
+\textbf{User Interaction and Responses:}
+\begin{itemize}
+    \item \textbf{Description:} The participant's interaction with the experiment, including clicking on words and the correctness of their choices.
+    \item \textbf{Possible Values:} Clicked word, correctness (boolean), time taken.
+\end{itemize}
+
+\textbf{Experiment Counter (\texttt{counter}):}
+\begin{itemize}
+    \item \textbf{Description:} Keeps track of the current experiment number.
+    \item \textbf{Possible Values:} Integer from 0 to the total number of experiments.
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Control Variables]
+
+\textbf{Total Number of Experiments (\texttt{totalExperiments}):}
+\begin{itemize}
+    \item \textbf{Description:} Specifies the total number of experiments to be conducted.
+    \item \textbf{Fixed Value:} 10 in this case.
+\end{itemize}
+
+\textbf{Starting Experiment State (\texttt{statingExperiment}):}
+\begin{itemize}
+    \item \textbf{Description:} Indicates whether the participant is in the personal information submission phase or the experiment phase.
+    \item \textbf{Possible Values:} Boolean (true/false).
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Blocking Variables]
+
+\textbf{Time-Related Variables (\texttt{startTime}, \texttt{endTime}, \texttt{timeTaken}):}
+\begin{itemize}
+    \item \textbf{Description:} Variables related to the timing of participant actions, including the start time, end time, and time taken to respond.
+    \item \textbf{Possible Values:} Timestamps and duration in milliseconds.
+\end{itemize}
+
+\textbf{Experiment Routing (\texttt{\$router.push}):}
+\begin{itemize}
+    \item \textbf{Description:} The redirection of the participant to different experiment pages or the end view page.
+    \item \textbf{Possible Values:} String (route name or path).
+\end{itemize}
+
+\textbf{Attempt Counter (\texttt{attempt}):}
+\begin{itemize}
+    \item \textbf{Description:} Keeps track of the number of attempts made by the participant in case of an incorrect response before advancing to the next word.
+    \item \textbf{Possible Values:} Integer.
+\end{itemize}
+
+\end{tcolorbox}
 
 \subsection{Design}
 Check off the characteristics of your experimental design:\\
@@ -138,12 +165,12 @@ Check off the characteristics of your experimental design:\\
     \fbox{\Square\ \textbf{Between Group Design} (independent measures)}
 \end{minipage}%
 \begin{minipage}{0.4\textwidth}
-    \fbox{\bm{\XBox{}} \textbf{Within Subject Design} (repeated measures)}
+    \fbox{\bm{\XBox{}} \textbf{Within Subject Design} (repeated measures)}A
 \end{minipage}%
 \begin{minipage}{0.0\textwidth}
     \fbox{\Square\ \textbf{Other}}
 \end{minipage}\\\\
-Explain, (1) in text using terminology from the book and lectures and (2) with a figure (similar to those used in Chapter 3 of the Field & Hole book), what kind of experiment you did.
+Explain, (1) in text using terminology from the book and lectures and (2) with a figure (similar to those used in Chapter 3 of the Field \& Hole book), what kind of experiment you did.
 
 \subsection{Participants}
 Describe who will take / took part in your experiment. Provide descriptive/summative statistics of their gender, age, professional backgrounds, and any other characteristics that may be relevant to your experiment. Also explain how you will recruit / recruited them (volunteers recruited through email, classmates who were asked to do this, etc) and how you will allocate / allocated them into the different study conditions, i.e., control group vs experimental group(s).
