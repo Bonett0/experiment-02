@@ -14,7 +14,7 @@
 \usepackage{tabularx} % Required for full-width tables
 \usepackage{colortbl} % Required for coloring the table cells
 \usepackage{xcolor}   % Required for defining colors
-
+\usepackage{booktabs}
 
 
 
@@ -303,24 +303,151 @@ The entire procedure aimed to create a standardized and controlled environment f
 
 \section{Results}
 \subsection{Visual Overview}
-Provide an insightful overview of the data you collected. This requires some engineering from your part, to find a good degree of summarization: On one end of the spectrum, you don't summarize, and report hundreds of raw measurement values in a block of text. On the other end of the spectrum, you report a single number (like a mean value). Both approaches are bad.
 
-Instead, use appropriate visual summaries (such as scatter plots, histograms, box plots, or empirical cumulative distribution functions) to show the distribution of your data. If you have a very small number of measurement values, then report all of them in a well organized table (where rows and/or columns correspond to different levels of different factors).
+After completing the experiment, we analyzed the data collected from various tests. Our primary tool for visualization was the boxen graph, chosen for its exceptional clarity in presenting complex data sets. This graphical method allowed us to easily interpretable visual representations of our findings.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{distribution_age.png}
+    \caption{Age and Time Distribution}
+\end{figure}
+
+\subsubsection*{Age Distribution of Participants}
+The first graph we present focuses on the age distribution of our participants. As illustrated, the majority of our participants are aged between 20 and 25 years. This age concentration aligns with our expectations, considering that most of our test users are students from our university. The graph distinctly shows this age group as the most represented, providing a clear understanding of the demographic makeup of our participant pool.
+
+\subsubsection*{Average Time for Task Completion}
+Adjacent to the age distribution graph, we display the average time taken by participants to complete a single task. This graph reveals significant variability in completion times, with some individuals finishing tasks in nearly one second, while others take as long as 12 seconds. Such a wide range suggests that various factors, which we will discuss later, significantly influence task completion time. This variability is a crucial aspect of our analysis, as it underscores the diversity in user interaction with our web application.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{difference_type.png}
+    \caption{Age and Time Distribution}
+\end{figure}
+
+Moreover, this graph is pivotal as it illustrates the difference in time taken between camelCase and kebabCase. Although the distributions appear almost identical, a closer analysis reveals subtle distinctions. Notably, the kebab-case type exhibits a marginally lower average time compared to camelCase. Additionally, the data for kebab-case are more tightly clustered, predominantly within a narrow range of 3 to 6 seconds. In contrast, the camelCase data are more dispersed, resulting in a higher average time.
+
+We want to highlight that the recorded times may be influenced by instances where users had to click more than once, as their initial response was incorrect. This aspect is crucial in understanding the time data, as the need for multiple attempts can significantly impact the total time taken for a task. the number of incorrect answers for camelCase and kebabCase were as follows:
+
+\begin{itemize}
+    \item \textbf{Incorrect Responses for camelCase:} There were a total of 13 incorrect responses.
+    \item \textbf{Incorrect Responses for kebabCase:} In comparison, kebabCase notation saw a slightly lower number of incorrect responses, totaling 8.
+\end{itemize}
+
+This result, as the average time for both camelCase and kebabCase could have been influenced by these incorrect responses.\\
+
+
+As we progress, it's crucial to consider the distinct methodologies used in Experiment 1 and Experiment 2. Participants in Experiment 1 were first introduced to kebab-case, followed by camelCase. On other hand, Experiment 2 start with camelCase, then proceeded to kebab-case. Notably, these experiments were assigned randomly to participants.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{difference_experiment.png}
+    \caption{Age and Time Distribution}
+\end{figure}
+
+Our analysis of the data reveals a significant difference between the two experiments. Experiment 1 generally exhibits faster completion times than Experiment 2. This observation suggests that starting with camelCase may present a higher initial challenge to participants, possibly due to its relatively more complex structure or familiarity aspects.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{programming_experience.png}
+    \caption{Age and Time Distribution}
+\end{figure}
+
+In our dataset, we further examined the impact of programming experience on task completion times, categorizing participants into three distinct groups: those with no programming experience, those with less than three years of experience, and those with more than three years of experience. The differences in task completion times across these groups were noteworthy. Participants with no programming experience typically took between 8 to 12 seconds to complete a task. Meanwhile, those with less than three years of experience and participants with more than three years of programming experience were much quicker, generally completing tasks within 3 to 6 seconds.
+
 
 
 \subsection{Descriptive Statistics}
 
-For each group or condition, summarize the set of measured values with a "five-number summary": minimum, first quartile, median, third quartile, and maximum (note: these are the statistics underlying a box plot).
 
-Moreover, report the mean and standard deviation (note: for data that is not normally distributed, e.g., for multi-modal data, these two statistics may be less meaningful).
 
-Make sure you explain – in your words – what these statistics mean “in plain English”, but don’t yet interpret them (this is for the Discussion section).
+\begin{table}[h]
+	\centering
+	\caption{Descriptive Statistics}
+	\label{tab:descriptiveStatistics}
+	{
+		\begin{tabular}{lrrrrrrr}
+			\toprule
+			 &  & Median & Minimum & Maximum & 25th percentile & 50th percentile & 75th percentile  \\
+			\cmidrule[0.4pt]{1-8}
+			TimeTaken & camelCase & $4541.700$ & $74.500$ & $13227.600$ & $2854.475$ & $4541.700$ & $6383.400$  \\
+			 & kebabCase & $4040.250$ & $1559.500$ & $10977.800$ & $2822.925$ & $4040.250$ & $5970.675$  \\
+			\bottomrule
+		\end{tabular}
+	}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\caption{Descriptive Statistics}
+	\label{tab:descriptiveStatistics}
+	{
+		\begin{tabular}{lrrr}
+			\toprule
+			 &  & Mean & Std. Deviation  \\
+			\cmidrule[0.4pt]{1-4}
+			TimeTaken & camelCase & $4931.910$ & $2815.904$  \\
+			 & kebabCase & $4581.095$ & $2289.234$  \\
+			\bottomrule
+		\end{tabular}
+	}
+\end{table}
+
+Here we provide a detailed summary of the descriptive statistics for the TimeTaken in both camelCase and kebabCase. These statistics are crucial for understanding the general behavior of the dataset.
+
+\begin{itemize}
+\item \textbf{camelCase:}
+\begin{itemize}
+\item The median time taken is 4541.70 milliseconds, indicating that half of the camelCase tasks were completed in less than this time and the other half took longer.
+\item The minimum and maximum times recorded are 74.50 and 13227.60 milliseconds, respectively, showing the range of completion times.
+\item The 25th percentile (2854.48 milliseconds) and the 75th percentile (6383.40 milliseconds) mark the lower and upper quartiles, meaning that 25% of the tasks were completed faster than 2854.48 milliseconds and 25% took longer than 6383.40 milliseconds.
+\item The mean time taken is 4931.91 milliseconds, with a standard deviation of 2815.90, indicating the average time and the variability around this average.
+\item The standard deviation is 2815.90 milliseconds. This relatively high value indicates a wide range around the mean time of 4931.91 milliseconds. In practical terms, it suggests that the time to finish the camelCase test varies greatly among different participants. This variation could be attributed to factors such as individual differences in understanding and applying camelCase notation or different levels of familiarity with the tasks.
+
+\end{itemize}
+\item \textbf{kebab-case:}
+\begin{itemize}
+\item The median time taken is 4040.25 milliseconds, serving as the midpoint of the dataset for kebabCase tasks.
+\item The minimum and maximum times are 1559.50 and 10977.80 milliseconds, respectively, indicating the full spread of times.
+\item The 25th percentile (2822.93 milliseconds) and the 75th percentile (5970.68 milliseconds) provide insights into the distribution of completion times, showing where the majority of data points lie.
+\item The mean time taken is 4581.09 milliseconds, with a standard deviation of 2289.23, reflecting the central tendency and the spread of the data.
+\item The standard deviation of 2289.23 milliseconds, slightly lower than that of camelCase. This indicates that test completion times in kebab-case are more clustered around the mean of 4581.09 milliseconds, showing less variability than in camelCase. This could mean that participants found the kebabCase notation more consistent or intuitive, which led to more uniform completion times.
+
+\end{itemize}
+\end{itemize}
 
 \subsection{Inferential Statistics}
-If applicable, you then follow these up with inferential statistics – i.e., the results of statistical tests that you did in order to decide whether there were any “real” (i.e., not by chance) differences between the conditions/groups. You should also explain what statistical test you used, and, if not immediately obvious, why.
 
-Make sure you explain – in your words – what these statistics mean “in plain English”, but don’t yet interpret them (this is for the Discussion section).
+To test whether the observed differences in time taken between the conditions and groups in our experiment were statistically significant, we used inferential statistics, specifically the t-test for independent samples.
 
+
+\subsubsection*{T-Test:}
+The independent samples t-test is a robust statistical tool used to compare the means of two independent groups. This test is ideal for our analysis because it assesses whether the observed differences in the mean completion times of the two different tests are statistically significant or whether they occurred by chance.\\
+
+The t-test produces two key values: the t-value and the p-value. The t-statistic reflects the magnitude of the difference between the groups with respect to the variability of the data. A higher t-statistic suggests a greater difference between the groups. The p-value indicates the probability of observing such a difference if no difference exists. A p-value less than 0.05 typically suggests that the difference is statistically significant and not just due to random variation.\\
+
+Our t-test, comparing the \textit{TimeTaken} between the different conditions, yielded the following results:
+\begin{table}[h]
+	\centering
+	\caption{Independent Samples T-Test Results}
+	\label{tab:independentSamplesTTest}
+	{
+		\begin{tabular}{lrrr}
+			\toprule
+			 & T-Statistic & Degrees of Freedom (df) & P-Value  \\
+			\cmidrule[0.4pt]{1-4}
+			TimeTaken & $0.749$ & $118$ & $0.455$  \\
+			\bottomrule
+		\end{tabular}
+	}
+\end{table}
+
+Our p-value of 0.455, which is higher than the conventional threshold of 0.05, suggests that the difference in \textit{TimeTaken} between the groups in our experiment is not statistically significant. This means that the observed differences in time taken could be attributed to chance rather than to a real effect of the conditions tested.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{difference_type_statistics.png}
+    \caption{Age and Time Distribution}
+\end{figure}
 
 \section{Discussion}
 \subsection{Compare Hypothesis to Results}
