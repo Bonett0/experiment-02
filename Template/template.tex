@@ -43,9 +43,12 @@ This report details the experimental design, methodology, and results of the stu
 
 
 
-\begin{tcolorbox}[title=Hypothesis]
-    Our hypothesis for this experiment is that the familiarity of participants with coding styles, specifically "camelCase" and "kebab-case," will significantly impact their accuracy in identifying and selecting the correct words in code snippets. We anticipate that participants familiar with both coding styles will demonstrate higher accuracy compared to those less familiar.
+\begin{tcolorbox}[title=Hypotheses]
+    Our first hypothesis for this experiment is that the programming experience of participants, categorized as no experience, less than three years of experience, and more than three years of experience, will significantly impact their performance in identifying and selecting the correct words in code snippets. We anticipate that participants with more programming experience, particularly those with more than three years, will demonstrate higher accuracy and speed in task completion compared to those with less or no experience.
+
+    Our second hypothesis posits that participants will complete tasks involving kebab-case notation faster than those involving camelCase notation. This is based on the premise that kebab-case, with its explicit word dividers, provides a clearer demarcation between words compared to camelCase, where word boundaries are indicated by capitalizing the first letter of each new word. The explicit division in kebab-case may facilitate quicker recognition and processing of words, thereby reducing the cognitive load and overall time taken for comprehension.
 \end{tcolorbox}
+
 
 
 
@@ -456,7 +459,43 @@ Provide a brief restatement of the main results from the previous section, and i
 If there is a discrepancy between your hypothesis and the results of your experiment, speculate about why you were unable to find evidence to support your hypothesis.
 
 
-\subsection{Limitations and Threats to Validity}Acknowledge any limitations and threats to validity of your study, and how seriously these affect your results. How could these be remedied in future work?
+\label{subsec:compare_hypothesis_results}
+
+In this section, we examine how our experimental findings align with our initial hypotheses, particularly considering the influence of programming experience on task performance.
+
+\paragraph{Revised Hypotheses:}
+Our revised hypotheses were as follows:
+\begin{enumerate}
+    \item \textbf{Impact of Programming Experience on Task Performance:} We hypothesized that the level of programming experience (categorized as no experience, less than three years, and more than three years) would significantly affect participants' ability to correctly and quickly identify and select words in code snippets. Specifically, we anticipated that participants with more than three years of programming experience would outperform those with less or no experience in terms of accuracy and speed.
+\end{enumerate}
+
+\paragraph{Assessment of Hypotheses:}
+\begin{itemize}
+    \item \textbf{Programming Experience and Task Performance:} The results from our experiment supported this hypothesis. Participants with more than three years of programming experience consistently showed quicker and more accurate task completion. Those with no programming experience typically took longer, between 8 to 12 seconds, to complete a task. In contrast, participants with more than three years of experience could complete tasks within 3 to 6 seconds, indicating a clear correlation between programming experience and task performance efficiency.
+    
+    \item \textbf{Comparative Analysis of Notation Styles:} While our initial hypothesis also considered the impact of notation style (camelCase and kebab-case), the results did not reveal a significant difference in performance based on these styles alone. This suggests that the programming experience of participants was a more decisive factor in their task performance than the specific coding notation used.
+\end{itemize}
+
+\paragraph{Reflection on Findings:}
+The alignment of the experimental results with our hypothesis regarding programming experience underscores the importance of familiarity and proficiency in programming. It suggests that experience in coding not only improves accuracy but also efficiency in processing and responding to coding-related tasks. The lack of significant difference attributed to notation style, however, indicates that the efficiency of processing different coding styles may be more uniform across experienced programmers, overshadowing the nuances between camelCase and kebab-case.
+
+
+Moreover the results of the t-test conducted in our study show, the statistical analysis did not provide sufficient evidence to reject the null hypothesis. This result suggests that there is no significant difference in completion times between groups in the conditions tested in our experiment.
+
+These results are of considerable importance as they contribute to the understanding of the impact of the conditions tested on task completion times. 
+
+\subsection{Limitations and Threats to Validity}
+This study, while providing insights into the readability of camelCase and kebab-case, has certain limitations that must be acknowledged for a comprehensive understanding.
+
+\begin{itemize}
+  \item \textbf{Participant Diversity:} The participants predominantly comprised university students with a background in informatics. Future studies could benefit from a more diverse demographic, including individuals from varied professional and educational backgrounds, to enhance the generalizability of the findings.
+
+  \item \textbf{Word Selection in Code Snippets:} The random selection of words for code snippets may have introduced varying levels of difficulty, potentially affecting task completion times. A more controlled and balanced selection of words in future experiments could yield more accurate comparative results.
+
+  \item \textbf{Sample Size and Repetition:} The sample size and the number of trials per participant in this study may not suffice to draw definitive conclusions. Increasing these factors could lead to more robust and reliable results.
+\end{itemize}
+
+These factors should be considered in future research to enhance the reliability and applicability of the results in the broader context of code readability and efficiency.
 
 \subsection{Conclusions}
 
