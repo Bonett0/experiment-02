@@ -29,8 +29,7 @@
 \begin{document}
 \maketitle
 \section*{Abstact}
-Short (120-130 words) summary of your entire report. Give the reader a quick idea of what you did and what the main findings were (if you prepare this report ahead of time, leave out the findings until after you finish the analysis).
-
+In this study, we investigate the readability of camelCase versus kebab-case in coding. We conducted experiments with a diverse group of participants, including students and friends. Participants interacted with code snippets containing words in either camelCase or kebab-case. The experiment aimed to assess their speed and accuracy in recognizing and selecting words based on these coding styles. Preliminary results suggest that familiarity with specific coding styles influences reading efficiency. However, the study's limited sample size and participant diversity may affect the generalizability of the findings. 
 
 \section{Introduction}
 In the realm of natural language reading, studies have demonstrated that the use of explicit separators between words significantly enhances reading speed—individuals tend to read 20\% faster when such separators are employed. Whether this finding extends to the realm of source code, specifically in the context of composed identifiers, remains an intriguing question. Composed identifiers, featuring more than one word, are commonly used in programming languages, and their readability can impact code comprehension and maintenance.
@@ -44,9 +43,12 @@ This report details the experimental design, methodology, and results of the stu
 
 
 \begin{tcolorbox}[title=Hypotheses]
-    Our first hypothesis for this experiment is that the programming experience of participants, categorized as no experience, less than three years of experience, and more than three years of experience, will significantly impact their performance in identifying and selecting the correct words in code snippets. We anticipate that participants with more programming experience, particularly those with more than three years, will demonstrate higher accuracy and speed in task completion compared to those with less or no experience.
+    Our experiment is guided by the following hypotheses:
+    \begin{itemize}
+        \item \textbf{First Hypothesis - Impact of Programming Experience:} The performance in identifying and selecting correct words in code snippets is significantly influenced by the participant's programming experience. We expect that those with more than three years of experience will perform better in terms of accuracy and speed compared to those with less or no experience.
 
-    Our second hypothesis posits that participants will complete tasks involving kebab-case notation faster than those involving camelCase notation. This is based on the premise that kebab-case, with its explicit word dividers, provides a clearer demarcation between words compared to camelCase, where word boundaries are indicated by capitalizing the first letter of each new word. The explicit division in kebab-case may facilitate quicker recognition and processing of words, thereby reducing the cognitive load and overall time taken for comprehension.
+        \item \textbf{Second Hypothesis - Efficiency of Notation Styles:} Participants will complete tasks with kebab-case notation more quickly than those with camelCase. This is due to kebab-case's clear separation of words, which is likely to facilitate quicker recognition and processing, as opposed to camelCase where word boundaries are less distinct.
+    \end{itemize}
 \end{tcolorbox}
 
 
@@ -173,7 +175,6 @@ This experiment employs a Multi-factor Design, encompassing various independent 
 \end{figure}
 
 \subsection{Participants}
-Describe who will take / took part in your experiment. Provide descriptive/summative statistics of their gender, age, professional backgrounds, and any other characteristics that may be relevant to your experiment. Also explain how you will recruit / recruited them (volunteers recruited through email, classmates who were asked to do this, etc) and how you will allocate / allocated them into the different study conditions, i.e., control group vs experimental group(s).\textbf{TODO: THE GRAPHICAL PART AND INFORMATIONS ABOUT THE DEMOGRAPHICS}\\
 
 The participants in this study encompass a diverse group of individuals, including students, professionals from various fields, and individuals with varying degrees of familiarity with informatics. The recruitment process involved approaching people in person, introducing the study, and inviting them to participate voluntarily.
 
@@ -202,11 +203,7 @@ Efforts were made to ensure diversity in the participant pool to capture a broad
 All collected data were treated with utmost confidentiality. Participants were assigned unique identifiers to protect their anonymity, and personal information was securely stored in compliance with data protection regulations.
 
 \subsection{Apparatus and Materials}
-Describe in sufficient detail any relevant “props” that you used in your experiment. This could be the computer
-you used (exact model and specification), the software used (URL, version numbers), the way you measured, e.g.,
-time (A stopwatch? A background process on the computer that got automatically triggered?). Omit needless
-detail (e.g., think whether details like the size of the table the laptop was placed on, or the hard disk size, might
-have affected your results or not)
+
 
 \subsubsection*{Hardware}
 The experiment was conducted using a \texttt{Dell Inc Precision 5550} laptop, featuring the following hardware specifications:
@@ -249,7 +246,7 @@ The experiment was conducted in a controlled environment with minimal external d
 
 
 \subsection{Procedure}
-Describe how you used your props and/or the participants to perform your actual experiment, i.e., how you actually carried out a single experimental run. What was done to the participants? What did they have to do? How long did each session take (unless this is an actual dependent variable)? If you did not have participants, explain, e.g., what software was started by whom in what order.\\\\
+
 The experiment was conducted in a controlled environment following a standardized procedure. Participants were recruited through in-person interactions, where individuals from a diverse background, including students and those with no prior experience in informatics, were invited to participate in a simple coding style test.
 
 \subsection*{Recruitment}
@@ -324,7 +321,7 @@ Adjacent to the age distribution graph, we display the average time taken by par
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{difference_type.png}
-    \caption{Age and Time Distribution}
+    \caption{Time Between Cmale case and Kebab Case}
 \end{figure}
 
 Moreover, this graph is pivotal as it illustrates the difference in time taken between camelCase and kebabCase. Although the distributions appear almost identical, a closer analysis reveals subtle distinctions. Notably, the kebab-case type exhibits a marginally lower average time compared to camelCase. Additionally, the data for kebab-case are more tightly clustered, predominantly within a narrow range of 3 to 6 seconds. In contrast, the camelCase data are more dispersed, resulting in a higher average time.
@@ -344,7 +341,7 @@ As we progress, it's crucial to consider the distinct methodologies used in Expe
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{difference_experiment.png}
-    \caption{Age and Time Distribution}
+    \caption{Different Between Experiment 1 and Experiment 2}
 \end{figure}
 
 Our analysis of the data reveals a significant difference between the two experiments. Experiment 1 generally exhibits faster completion times than Experiment 2. This observation suggests that starting with camelCase may present a higher initial challenge to participants, possibly due to its relatively more complex structure or familiarity aspects.
@@ -352,7 +349,7 @@ Our analysis of the data reveals a significant difference between the two experi
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{programming_experience.png}
-    \caption{Age and Time Distribution}
+    \caption{Difference between years of programming experience}
 \end{figure}
 
 In our dataset, we further examined the impact of programming experience on task completion times, categorizing participants into three distinct groups: those with no programming experience, those with less than three years of experience, and those with more than three years of experience. The differences in task completion times across these groups were noteworthy. Participants with no programming experience typically took between 8 to 12 seconds to complete a task. Meanwhile, those with less than three years of experience and participants with more than three years of programming experience were much quicker, generally completing tasks within 3 to 6 seconds.
@@ -449,14 +446,12 @@ Our p-value of 0.455, which is higher than the conventional threshold of 0.05, s
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.4\textwidth]{difference_type_statistics.png}
-    \caption{Age and Time Distribution}
+    \caption{TimeTaken of different type}
 \end{figure}
 
 \section{Discussion}
 \subsection{Compare Hypothesis to Results}
-Provide a brief restatement of the main results from the previous section, and if (or if not) these support your research hypothesis.
 
-If there is a discrepancy between your hypothesis and the results of your experiment, speculate about why you were unable to find evidence to support your hypothesis.
 
 
 \label{subsec:compare_hypothesis_results}
